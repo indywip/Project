@@ -81,33 +81,48 @@ public class WeeklyClasses {
      * EFFECTS: class is removed from day of the week and updated schedule is returned
      */
     public void removeClassMonday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        monday.remove(classClass);
+        for (int i = 0; i < monday.size(); i++) {
+            if ((monday.get(i).retrieveClass()).equals(inputClass)) {
+                monday.remove(i);
+            } else {
+            }
+        }
     }
 
     public void removeClassTuesday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        tuesday.remove(classClass);
+        for (int i = 0; i < tuesday.size(); i++) {
+            if ((tuesday.get(i).retrieveClass()).equals(inputClass)) {
+                tuesday.remove(i);
+            } else {
+            }
+        }
     }
 
     public void removeClassWednesday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        wednesday.remove(classClass);
+        for (int i = 0; i < wednesday.size(); i++) {
+            if ((wednesday.get(i).retrieveClass()).equals(inputClass)) {
+                wednesday.remove(i);
+            } else {
+            }
+        }
     }
 
     public void removeClassThursday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        thursday.remove(classClass);
+        for (int i = 0; i < thursday.size(); i++) {
+            if ((thursday.get(i).retrieveClass()).equals(inputClass)) {
+                thursday.remove(i);
+            } else {
+            }
+        }
     }
 
     public void removeClassFriday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        friday.remove(classClass);
+        for (int i = 0; i < friday.size(); i++) {
+            if ((friday.get(i).retrieveClass()).equals(inputClass)) {
+                friday.remove(i);
+            } else {
+            }
+        }
     }
 
     @Override
