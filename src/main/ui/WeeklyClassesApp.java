@@ -5,12 +5,9 @@ import java.util.Scanner;
 
 // Student classes per week application
 public class WeeklyClassesApp {
-    private WeeklyClasses Monday;
-    private WeeklyClasses Tuesday;
-    private WeeklyClasses Wednesday;
-    private WeeklyClasses Thursday;
-    private WeeklyClasses Friday;
+    private WeeklyClasses MySchedule;
     private Scanner input;
+    private String myClass;
 
     // EFFECTS: runs the weekly classes application
     public WeeklyClassesApp() {
@@ -50,18 +47,14 @@ public class WeeklyClassesApp {
         } else if (command.equals("Remove a class")) {
             removeClass();
         } else {
-            System.out.println("Selection not valid...");
+            System.out.println("Invalid selection");
         }
     }
 
     // MODIFIES: this
     // EFFECTS: initializes schedule
     private void init() {
-        Monday = new WeeklyClasses("Joe", 145.00);
-        Tuesday = new WeeklyClasses("Joe", 256.50);
-        Wednesday = new WeeklyClasses("Joe", 145.00);
-        Thursday = new WeeklyClasses("Joe", 256.50);
-        Friday = new WeeklyClasses("Joe", 145.00);
+        MySchedule = new WeeklyClasses("Joe");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -77,28 +70,25 @@ public class WeeklyClassesApp {
     // MODIFIES: this
     // EFFECTS: adds a class to a particular day in the schedule
     private void addClass() {
-        WeeklyClasses selected = selectDay();
-        System.out.print("Enter class name to add: ");
+        System.out.print("Enter class name/s to add: ");
+        String myClass = input.nextLine();
+        MySchedule = selectDayAdd();
 
-        printSchedule(selected);
+        printSchedule(MySchedule);
     }
 
     // MODIFIES: this
     // EFFECTS: removes a class from a particular day in the schedule
     private void removeClass() {
-        WeeklyClasses selected = selectDay();
-        System.out.print("Enter class name to remove: ");
+        System.out.print("Enter class name/s to remove: ");
+        String myClass = input.nextLine();
+        MySchedule = selectDayRemove();
 
-        printSchedule(selected);
+        printSchedule(MySchedule);
     }
 
     // EFFECTS: prompts user to select which day of the week
-    // else if (selection.equals("Tuesday")) {
-    //            return Tuesday;
-    //        }else if (selection.equals("Tuesday")) {
-    //            return Tuesday;
-    //        } and returns it
-    private WeeklyClasses selectDay() {
+    private WeeklyClasses selectDayAdd() {
         String selection = "";  // force entry into loop
 
         while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday") ||
@@ -113,20 +103,49 @@ public class WeeklyClassesApp {
         }
 
         if (selection.equals("Monday")) {
-            return Monday;
+            model.WeeklyClasses.addClassMonday(myClass);
         } else if (selection.equals("Tuesday")) {
-            return Tuesday;
+            model.WeeklyClasses.addClassTuesday(myClass);
         } else if (selection.equals("Wednesday")) {
-            return Wednesday;
+            model.WeeklyClasses.addClassWednesday(myClass);
         } else if (selection.equals("Thursday")) {
-            return Thursday;
+            model.WeeklyClasses.addClassThursday(myClass);
         } else {
-            return Friday;
+            model.WeeklyClasses.addClassFriday(myClass);
+        }
+    }
+
+    private WeeklyClasses selectDayRemove() {
+        String selection = "";  // force entry into loop
+
+        while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday") ||
+                selection.equals("Thursday") || selection.equals("Friday"))) {
+            System.out.println("Monday");
+            System.out.println("Tuesday");
+            System.out.println("Wednesday");
+            System.out.println("Thursday");
+            System.out.println("Friday");
+            selection = input.next();
+            selection = selection.toLowerCase();
+        }
+
+        if (selection.equals("Monday")) {
+            model.WeeklyClasses.removeClassMonday(myClass);
+        } else if (selection.equals("Tuesday")) {
+            model.WeeklyClasses.removeClassTuesday(myClass);
+        } else if (selection.equals("Wednesday")) {
+            model.WeeklyClasses.removeClassWednesday(myClass);
+        } else if (selection.equals("Thursday")) {
+            model.WeeklyClasses.removeClassThursday(myClass);
+        } else {
+            model.WeeklyClasses.removeClassFriday(myClass);
         }
     }
 
     // EFFECTS: prints current schedule to the screen
     private void printSchedule(WeeklyClasses selected) {
-        System.out.printf("Balance: $%.2f\n", selected.getSchedule());
+    System.out.println("Schedule: \n",selected.toString())
+        }
     }
 }
+   // System.out.printf("Balance: $%.2f\n", selected.getSchedule());
