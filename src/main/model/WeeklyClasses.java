@@ -76,7 +76,7 @@ public class WeeklyClasses {
      * EFFECTS: class inputed is removed from day of the week and updated schedule is returned
      */
     public void removeClassMonday(String inputClass) {
-        for (Iterator<MyClass> iterator = monday.iterator(); iterator.hasNext();) {
+        for (Iterator<MyClass> iterator = monday.iterator(); iterator.hasNext(); ) {
             MyClass theClass = iterator.next();
             if (theClass.retrieveClass().equals(inputClass)) {
                 iterator.remove();
@@ -85,7 +85,7 @@ public class WeeklyClasses {
     }
 
     public void removeClassTuesday(String inputClass) {
-        for (Iterator<MyClass> iterator = tuesday.iterator(); iterator.hasNext();) {
+        for (Iterator<MyClass> iterator = tuesday.iterator(); iterator.hasNext(); ) {
             MyClass theClass = iterator.next();
             if (theClass.retrieveClass().equals(inputClass)) {
                 iterator.remove();
@@ -94,7 +94,7 @@ public class WeeklyClasses {
     }
 
     public void removeClassWednesday(String inputClass) {
-        for (Iterator<MyClass> iterator = wednesday.iterator(); iterator.hasNext();) {
+        for (Iterator<MyClass> iterator = wednesday.iterator(); iterator.hasNext(); ) {
             MyClass theClass = iterator.next();
             if (theClass.retrieveClass().equals(inputClass)) {
                 iterator.remove();
@@ -103,7 +103,7 @@ public class WeeklyClasses {
     }
 
     public void removeClassThursday(String inputClass) {
-        for (Iterator<MyClass> iterator = thursday.iterator(); iterator.hasNext();) {
+        for (Iterator<MyClass> iterator = thursday.iterator(); iterator.hasNext(); ) {
             MyClass theClass = iterator.next();
             if (theClass.retrieveClass().equals(inputClass)) {
                 iterator.remove();
@@ -112,7 +112,7 @@ public class WeeklyClasses {
     }
 
     public void removeClassFriday(String inputClass) {
-        for (Iterator<MyClass> iterator = friday.iterator(); iterator.hasNext();) {
+        for (Iterator<MyClass> iterator = friday.iterator(); iterator.hasNext(); ) {
             MyClass theClass = iterator.next();
             if (theClass.retrieveClass().equals(inputClass)) {
                 iterator.remove();
