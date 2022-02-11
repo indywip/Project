@@ -79,6 +79,7 @@ public class WeeklyClasses {
             if ((monday.get(i).retrieveClass()).equals(inputClass)) {
                 monday.remove(i);
             } else {
+                ;
             }
         }
     }
@@ -88,6 +89,7 @@ public class WeeklyClasses {
             if ((tuesday.get(i).retrieveClass()).equals(inputClass)) {
                 tuesday.remove(i);
             } else {
+                ;
             }
         }
     }
@@ -97,6 +99,7 @@ public class WeeklyClasses {
             if ((wednesday.get(i).retrieveClass()).equals(inputClass)) {
                 wednesday.remove(i);
             } else {
+                ;
             }
         }
     }
@@ -106,6 +109,7 @@ public class WeeklyClasses {
             if ((thursday.get(i).retrieveClass()).equals(inputClass)) {
                 thursday.remove(i);
             } else {
+                ;
             }
         }
     }
@@ -115,6 +119,7 @@ public class WeeklyClasses {
             if ((friday.get(i).retrieveClass()).equals(inputClass)) {
                 friday.remove(i);
             } else {
+                ;
             }
         }
     }

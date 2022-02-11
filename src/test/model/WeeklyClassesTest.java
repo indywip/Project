@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +33,7 @@ class WeeklyClassesTest {
     //ArrayList<String> = new ArrayList<>();
     //ArrayList<ArrayList<String>> schedule = new ArrayList<>();
     //testSchedule = new WeeklyClasses();
-   // testSchedule.name ="Indy";
+    // testSchedule.name ="Indy";
 
     @Test
     void testRemoveClassEmpty() {
@@ -59,23 +60,23 @@ class WeeklyClassesTest {
     void testAddMultipleClasses() {
         testSchedule.addClassWednesday("CPSC 110");
         testSchedule.addClassWednesday("CPSC 121");
-         assertEquals("[ Monday: []\n" +
-                 " Tuesday: [CPSC110, CPSC121]\n" +
-                 " Wednesday: []\n" +
-                 " Thursday: []\n" +
-                 " Friday: []]", testSchedule.getSchedule());
+        assertEquals("[ Monday: []\n" +
+                " Tuesday: [CPSC110, CPSC121]\n" +
+                " Wednesday: []\n" +
+                " Thursday: []\n" +
+                " Friday: []]", testSchedule.getSchedule());
     }
 
     @Test
     void testRemoveMultipleClasses() {
-         testSchedule.addClassTuesday("CPSC 110");
-         testSchedule.addClassTuesday("CPSC 121");
-         testSchedule.removeClassFriday("CPSC 110");
-         testSchedule.removeClassFriday("CPSC 121");
-         assertEquals("[ Monday: []\n" +
-                 " Tuesday: []\n" +
-                 " Wednesday: []\n" +
-                 " Thursday: []\n" +
-                 " Friday: []]", testSchedule.getSchedule());
+        testSchedule.addClassTuesday("CPSC 110");
+        testSchedule.addClassTuesday("CPSC 121");
+        testSchedule.removeClassFriday("CPSC 110");
+        testSchedule.removeClassFriday("CPSC 121");
+        assertEquals("[ Monday: []\n" +
+                " Tuesday: []\n" +
+                " Wednesday: []\n" +
+                " Thursday: []\n" +
+                " Friday: []]", testSchedule.getSchedule());
     }
 }

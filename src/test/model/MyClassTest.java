@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ class MyClassTest {
 
     @BeforeEach
     void runBefore() {
-    testClasses = new MyClass();
+        testClasses = new MyClass();
     }
 
     @Test
