@@ -3,8 +3,8 @@ package model;
 public class myClass {
     private String classname;
 
-    public myClass(String myClassName) {
-        classname = myClassName;
+    public myClass() {
+
     }
 
     public String retrieveClass() {

@@ -7,11 +7,11 @@ import java.util.List;
 public class WeeklyClasses {
     private String name;                   // the account owner name
     // private ArrayList<ArrayList<String>> schedule;
-    private ArrayList<String> monday;
-    private ArrayList<String> tuesday;
-    private ArrayList<String> wednesday;
-    private ArrayList<String> thursday;
-    private ArrayList<String> friday;
+    private ArrayList<myClass> monday;
+    private ArrayList<myClass> tuesday;
+    private ArrayList<myClass> wednesday;
+    private ArrayList<myClass> thursday;
+    private ArrayList<myClass> friday;
 
     // the current class schedule
 
@@ -45,24 +45,34 @@ public class WeeklyClasses {
      * MODIFIES: this
      * EFFECTS: class is added to day of the week and updated schedule is returned
      */
-    public void addClassMonday(String myClass) {
-        monday.add(myClass);
+    public void addClassMonday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        monday.add(classClass);
     }
 
-    public void addClassTuesday(String myClass) {
-        tuesday.add(myClass);
+    public void addClassTuesday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        tuesday.add(classClass);
     }
 
-    public void addClassWednesday(String myClass) {
-        wednesday.add(myClass);
+    public void addClassWednesday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        wednesday.add(classClass);
     }
 
-    public void addClassThursday(String myClass) {
-        thursday.add(myClass);
+    public void addClassThursday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        thursday.add(classClass);
     }
 
-    public void addClassFriday(String myClass) {
-        friday.add(myClass);
+    public void addClassFriday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        friday.add(classClass);
     }
 
     /*
@@ -70,31 +80,66 @@ public class WeeklyClasses {
      * MODIFIES: this
      * EFFECTS: class is removed from day of the week and updated schedule is returned
      */
-    public void removeClassMonday(String myClass) {
-        monday.remove(myClass);
+    public void removeClassMonday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        monday.remove(classClass);
     }
 
-    public void removeClassTuesday(String myClass) {
-        tuesday.remove(myClass);
+    public void removeClassTuesday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        tuesday.remove(classClass);
     }
 
-    public void removeClassWednesday(String myClass) {
-        wednesday.remove(myClass);
+    public void removeClassWednesday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        wednesday.remove(classClass);
     }
 
-    public void removeClassThursday(String myClass) {
-        thursday.remove(myClass);
+    public void removeClassThursday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        thursday.remove(classClass);
     }
 
-    public void removeClassFriday(String myClass) {
-        friday.remove(myClass);
+    public void removeClassFriday(String inputClass) {
+        myClass classClass = new myClass();
+        classClass.setClass(inputClass);
+        friday.remove(classClass);
     }
 
     @Override
     public String toString() {
-        return "[ Monday: " + monday.toString() + "\n Tuesday: " + tuesday.toString()
-                + "\n Wednesday: " + wednesday.toString() + "\n Thursday: " + thursday.toString()
-                + "\n Friday: " + friday.toString() + "]";
+        ArrayList<String> mondayStrings = new ArrayList<>();
+        for (int i = 0; i < monday.size(); i++) {
+            mondayStrings.add(monday.get(i).retrieveClass());
+        }
+
+        ArrayList<String> tuesdayStrings = new ArrayList<>();
+        for (int i = 0; i < tuesday.size(); i++) {
+            tuesdayStrings.add(tuesday.get(i).retrieveClass());
+        }
+
+        ArrayList<String> wednesdayStrings = new ArrayList<>();
+        for (int i = 0; i < wednesday.size(); i++) {
+            wednesdayStrings.add(wednesday.get(i).retrieveClass());
+        }
+
+        ArrayList<String> thursdayStrings = new ArrayList<>();
+        for (int i = 0; i < thursday.size(); i++) {
+            thursdayStrings.add(thursday.get(i).retrieveClass());
+        }
+
+        ArrayList<String> fridayStrings = new ArrayList<>();
+        for (int i = 0; i < friday.size(); i++) {
+            fridayStrings.add(friday.get(i).retrieveClass());
+        }
+
+        return "[ Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings
+                + "\n Wednesday: " + wednesdayStrings + "\n Thursday: " + thursdayStrings
+                + "\n Friday: " + fridayStrings + "]";
     }
 }
 
