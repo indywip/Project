@@ -14,7 +14,8 @@ would ensure that I don't miss any of my classes.
 - As a user, I want to be able to add a class to my weekly schedule
 - As a user, I want to be able to remove a class from my weekly schedule
 - As a user, I want to be able to add or remove multiple classes from my weekly schedule at the same time
-- As a user, I want to be able to view my complete schedule
+- As a user, I want to be able to view my updated schedule every time I remove/add a class
+- As a user, I want to be able to print my complete schedule
 
 *Source Attribution: The code used in this project is based on the TellerApp 
 code example provided in class.*

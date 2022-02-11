@@ -55,7 +55,7 @@ class WeeklyClassesTest {
                 " Friday: []]", testSchedule.getSchedule());
     }
 
-     @Test
+    @Test
     void testAddMultipleClasses() {
         testSchedule.addClassWednesday("CPSC 110");
         testSchedule.addClassWednesday("CPSC 121");
@@ -66,7 +66,7 @@ class WeeklyClassesTest {
                  " Friday: []]", testSchedule.getSchedule());
     }
 
-     @Test
+    @Test
     void testRemoveMultipleClasses() {
          testSchedule.addClassTuesday("CPSC 110");
          testSchedule.addClassTuesday("CPSC 121");

@@ -27,7 +27,7 @@ public class WeeklyClassesApp {
             command = input.next();
             command = command.toLowerCase();
 
-            if (command.equals("3")) {
+            if (command.equals("4")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -45,6 +45,8 @@ public class WeeklyClassesApp {
             addClass();
         } else if (command.equals("2")) {
             removeClass();
+        } else if (command.equals("3")) {
+            printSchedule(mySchedule);
         } else {
             System.out.println("Invalid selection");
         }
@@ -63,13 +65,14 @@ public class WeeklyClassesApp {
         System.out.println("\nSelect number from:");
         System.out.println("\t1. Add a class");
         System.out.println("\t2. Remove a class");
-        System.out.println("\t3. Complete");
+        System.out.println("\t3. View current schedule");
+        System.out.println("\t4. Complete");
     }
 
     // MODIFIES: this
     // EFFECTS: adds a class to a particular day in the schedule
     private void addClass() {
-        System.out.print("Enter class name/s to add: ");
+        System.out.print("Enter class name to add: ");
         String className = input.next();
         selectDayAdd(className);
     }
@@ -77,7 +80,7 @@ public class WeeklyClassesApp {
     // MODIFIES: this
     // EFFECTS: removes a class from a particular day in the schedule
     private void removeClass() {
-        System.out.print("Enter class name/s to remove: ");
+        System.out.print("Enter class name to remove: ");
         String className = input.next();
         selectDayRemove(className);
     }
