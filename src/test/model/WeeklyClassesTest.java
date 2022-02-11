@@ -52,3 +52,4 @@ class AccountTest {
         ArrayList<ArrayList<String>> schedule = new ArrayList<>();
         assertEquals(schedule, testSchedule.getSchedule());
     }
+}
