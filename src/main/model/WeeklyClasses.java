@@ -7,12 +7,11 @@ import java.util.List;
 public class WeeklyClasses {
     private String name;                   // the account owner name
     // private ArrayList<ArrayList<classname>> schedule;
-    private String myClass;
-    private ArrayList<myClass> monday;
-    private ArrayList<myClass> tuesday;
-    private ArrayList<myClass> wednesday;
-    private ArrayList<myClass> thursday;
-    private ArrayList<myClass> friday;
+    private ArrayList<String> monday;
+    private ArrayList<String> tuesday;
+    private ArrayList<String> wednesday;
+    private ArrayList<String> thursday;
+    private ArrayList<String> friday;
 
 
     // the current class schedule
@@ -31,7 +30,6 @@ public class WeeklyClasses {
         thursday = new ArrayList<>();
         friday = new ArrayList<>();
         }
-    }
 
     // initialSchedule.add("Monday:");
     // initialSchedule.add("Tuesday:");
@@ -48,38 +46,34 @@ public class WeeklyClasses {
     //     return schedule;
     // }
 
-    public String getClass() {
-        myClass = new String;
-        return myClass;
-    }
 
     /*
      * REQUIRES: class is String
      * MODIFIES: this
      * EFFECTS: class is added to schedule and updated schedule is returned
      */
-    public String addClassMonday(String myClass) {
-        monday = monday.add(myClass);
+    public void addClassMonday(String myClass) {
+        monday.add(myClass);
         return;
     }
 
-    public String addClassTuesday(String myClass) {
-        tuesday = tuesday.add(myClass);
+    public void addClassTuesday(String myClass) {
+        tuesday.add(myClass);
         return;
     }
 
-    public String addClassWednesday(String myClass) {
-        wednesday = wednesday.add(myClass);
+    public void addClassWednesday(String myClass) {
+        wednesday.add(myClass);
         return;
     }
 
-    public String addClassThursday(String myClass) {
-        thursday = thursday.add(myClass);
+    public void addClassThursday(String myClass) {
+        thursday.add(myClass);
         return;
     }
 
-    public String addClassFriday(String myClass) {
-        friday = friday.add(myClass);
+    public void addClassFriday(String myClass) {
+        friday.add(myClass);
         return;
     }
 
@@ -88,28 +82,28 @@ public class WeeklyClasses {
      * MODIFIES: this
      * EFFECTS: class is removed from schedule and updated schedule is returned
      */
-    public String removeClassMonday(String myClass) {
-        monday = monday.remove(myClass);
+    public void removeClassMonday(String myClass) {
+        monday.remove(myClass);
         return;
     }
 
-    public String removeClassTuesday(String myClass) {
-        tuesday = tuesday.remove(myClass);
+    public void removeClassTuesday(String myClass) {
+        tuesday.remove(myClass);
         return;
     }
 
-    public String removeClassWednesday(String myClass) {
-        wednesday = wednesday.remove(myClass);
+    public void removeClassWednesday(String myClass) {
+        wednesday.remove(myClass);
         return;
     }
 
-    public String removeClassThursday(String myClass) {
-        thursday = thursday.remove(myClass);
+    public void removeClassThursday(String myClass) {
+        thursday.remove(myClass);
         return;
     }
 
-    public String removeClassFriday(String myClass) {
-        friday = friday.remove(myClass);
+    public void removeClassFriday(String myClass) {
+        friday.remove(myClass);
         return;
     }
 
