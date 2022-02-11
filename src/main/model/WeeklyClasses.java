@@ -6,7 +6,7 @@ import java.util.List;
 // Represents an account having an  owner name and weekly class schedule
 public class WeeklyClasses {
     private String name;                   // the account owner name
-    private ArrayList<ArrayList<String>> schedule;
+    // private ArrayList<ArrayList<String>> schedule;
     private ArrayList<String> monday;
     private ArrayList<String> tuesday;
     private ArrayList<String> wednesday;
@@ -97,7 +97,4 @@ public class WeeklyClasses {
                 + "\n Friday: " + friday.toString() + "]";
     }
 }
-
-
-
 

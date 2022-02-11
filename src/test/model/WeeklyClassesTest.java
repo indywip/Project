@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-class AccountTest {
+class WeeklyClassesTest {
     private WeeklyClasses testSchedule;
 
     @BeforeEach
