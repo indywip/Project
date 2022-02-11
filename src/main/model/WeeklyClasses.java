@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 // Represents an account having an owner name and weekly class schedule
 public class WeeklyClasses {
@@ -35,9 +36,9 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: class is a Class that contains a String
+     * REQUIRES: inputClass is a Class that contains a String
      * MODIFIES: this
-     * EFFECTS: class is added to day of the week and updated schedule is returned
+     * EFFECTS: inputted class is added to day of the week and updated schedule is returned
      */
     public void addClassMonday(String inputClass) {
         MyClass classClass = new MyClass();
@@ -70,46 +71,51 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: class is a Class that contains a String and is found in getSchedule()
+     * REQUIRES: inputClass is a Class that contains a String and is found in getSchedule()
      * MODIFIES: this
-     * EFFECTS: class is removed from day of the week and updated schedule is returned
+     * EFFECTS: class inputed is removed from day of the week and updated schedule is returned
      */
     public void removeClassMonday(String inputClass) {
-        for (int i = 0; i < monday.size(); i++) {
-            if ((monday.get(i).retrieveClass()).equals(inputClass)) {
-                monday.remove(i);
+        for (Iterator<MyClass> iterator = monday.iterator(); iterator.hasNext();) {
+            MyClass theClass = iterator.next();
+            if (theClass.retrieveClass().equals(inputClass)) {
+                iterator.remove();
             }
         }
     }
 
     public void removeClassTuesday(String inputClass) {
-        for (int i = 0; i < tuesday.size(); i++) {
-            if ((tuesday.get(i).retrieveClass()).equals(inputClass)) {
-                tuesday.remove(i);
+        for (Iterator<MyClass> iterator = tuesday.iterator(); iterator.hasNext();) {
+            MyClass theClass = iterator.next();
+            if (theClass.retrieveClass().equals(inputClass)) {
+                iterator.remove();
             }
         }
     }
 
     public void removeClassWednesday(String inputClass) {
-        for (int i = 0; i < wednesday.size(); i++) {
-            if ((wednesday.get(i).retrieveClass()).equals(inputClass)) {
-                wednesday.remove(i);
+        for (Iterator<MyClass> iterator = wednesday.iterator(); iterator.hasNext();) {
+            MyClass theClass = iterator.next();
+            if (theClass.retrieveClass().equals(inputClass)) {
+                iterator.remove();
             }
         }
     }
 
     public void removeClassThursday(String inputClass) {
-        for (int i = 0; i < thursday.size(); i++) {
-            if ((thursday.get(i).retrieveClass()).equals(inputClass)) {
-                thursday.remove(i);
+        for (Iterator<MyClass> iterator = thursday.iterator(); iterator.hasNext();) {
+            MyClass theClass = iterator.next();
+            if (theClass.retrieveClass().equals(inputClass)) {
+                iterator.remove();
             }
         }
     }
 
     public void removeClassFriday(String inputClass) {
-        for (int i = 0; i < friday.size(); i++) {
-            if ((friday.get(i).retrieveClass()).equals(inputClass)) {
-                friday.remove(i);
+        for (Iterator<MyClass> iterator = friday.iterator(); iterator.hasNext();) {
+            MyClass theClass = iterator.next();
+            if (theClass.retrieveClass().equals(inputClass)) {
+                iterator.remove();
             }
         }
     }
