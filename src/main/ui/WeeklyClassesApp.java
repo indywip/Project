@@ -142,10 +142,8 @@ public class WeeklyClassesApp {
 
     // EFFECTS: prints current schedule to the screen
     private String printSchedule(WeeklyClasses selected) {
-        // System.out.println(selected);
         System.out.printf("Schedule: \n %s", selected.toString());
         return selected.toString();
     }
-
 }
-// System.out.printf("Schedule: \n",  selected.getSchedule());
+

@@ -2,21 +2,19 @@ package model;
 
 import java.util.ArrayList;
 
-// Represents an account having an  owner name and weekly class schedule
+// Represents an account having an owner name and weekly class schedule
 public class WeeklyClasses {
     private String name;                   // the account owner name
-    private ArrayList<MyClass> monday;
+    private ArrayList<MyClass> monday;     // arraylist of daily classes
     private ArrayList<MyClass> tuesday;
     private ArrayList<MyClass> wednesday;
     private ArrayList<MyClass> thursday;
     private ArrayList<MyClass> friday;
 
-    // the current class schedule
-
     /*
      * REQUIRES: accountName has a non-zero length
      * EFFECTS: name on account is set to accountName;
-     *          each list is a day of the week and is initialized as empty;
+     *          each arraylist is a day of the week and is initialized as empty;
      */
     public WeeklyClasses(String accountName) {
         // ArrayList<String> initialSchedule
@@ -37,7 +35,7 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: class is String
+     * REQUIRES: class is a Class that contains a String
      * MODIFIES: this
      * EFFECTS: class is added to day of the week and updated schedule is returned
      */
@@ -72,7 +70,7 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: class is String and class is found in getSchedule()
+     * REQUIRES: class is a Class that contains a String and is found in getSchedule()
      * MODIFIES: this
      * EFFECTS: class is removed from day of the week and updated schedule is returned
      */
@@ -121,6 +119,9 @@ public class WeeklyClasses {
         }
     }
 
+    /*
+     * EFFECTS: returns a string representation of schedule
+     */
     @Override
     public String toString() {
         ArrayList<String> mondayStrings = new ArrayList<>();
