@@ -35,7 +35,18 @@ class AccountTest {
    // testSchedule.name ="Indy";
 
     @Test
+    void testRemoveClassEmpty() {
+        testSchedule.removeClassTuesday("CPSC110");
+        assertEquals("[ Monday: []\n" +
+                " Tuesday: []\n" +
+                " Wednesday: []\n" +
+                " Thursday: []\n" +
+                " Friday: []]", testSchedule.getSchedule());
+    }
+
+    @Test
     void testRemoveClass() {
+        testSchedule.addClassThursday("CPSC110");
         testSchedule.removeClassThursday("CPSC110");
         assertEquals("[ Monday: []\n" +
                 " Tuesday: []\n" +
@@ -46,8 +57,8 @@ class AccountTest {
 
      @Test
     void testAddMultipleClasses() {
-        testSchedule.addClassTuesday("CPSC 110");
-        testSchedule.addClassTuesday("CPSC 121");
+        testSchedule.addClassWednesday("CPSC 110");
+        testSchedule.addClassWednesday("CPSC 121");
          assertEquals("[ Monday: []\n" +
                  " Tuesday: [CPSC110, CPSC121]\n" +
                  " Wednesday: []\n" +
@@ -57,8 +68,10 @@ class AccountTest {
 
      @Test
     void testRemoveMultipleClasses() {
-         testSchedule.removeClassTuesday("CPSC 110");
-         testSchedule.removeClassTuesday("CPSC 121");
+         testSchedule.addClassTuesday("CPSC 110");
+         testSchedule.addClassTuesday("CPSC 121");
+         testSchedule.removeClassFriday("CPSC 110");
+         testSchedule.removeClassFriday("CPSC 121");
          assertEquals("[ Monday: []\n" +
                  " Tuesday: []\n" +
                  " Wednesday: []\n" +
