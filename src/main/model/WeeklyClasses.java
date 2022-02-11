@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 // Represents an account having an owner name and weekly class schedule
 public class WeeklyClasses {
@@ -76,48 +77,28 @@ public class WeeklyClasses {
      * EFFECTS: class inputed is removed from day of the week and updated schedule is returned
      */
     public void removeClassMonday(String inputClass) {
-        for (Iterator<MyClass> iterator = monday.iterator(); iterator.hasNext(); ) {
-            MyClass theClass = iterator.next();
-            if (theClass.retrieveClass().equals(inputClass)) {
-                iterator.remove();
-            }
-        }
+        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        monday.removeIf(condition);
     }
 
     public void removeClassTuesday(String inputClass) {
-        for (Iterator<MyClass> iterator = tuesday.iterator(); iterator.hasNext(); ) {
-            MyClass theClass = iterator.next();
-            if (theClass.retrieveClass().equals(inputClass)) {
-                iterator.remove();
-            }
-        }
+        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        tuesday.removeIf(condition);
     }
 
     public void removeClassWednesday(String inputClass) {
-        for (Iterator<MyClass> iterator = wednesday.iterator(); iterator.hasNext(); ) {
-            MyClass theClass = iterator.next();
-            if (theClass.retrieveClass().equals(inputClass)) {
-                iterator.remove();
-            }
-        }
+        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        wednesday.removeIf(condition);
     }
 
     public void removeClassThursday(String inputClass) {
-        for (Iterator<MyClass> iterator = thursday.iterator(); iterator.hasNext(); ) {
-            MyClass theClass = iterator.next();
-            if (theClass.retrieveClass().equals(inputClass)) {
-                iterator.remove();
-            }
-        }
+        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        thursday.removeIf(condition);
     }
 
     public void removeClassFriday(String inputClass) {
-        for (Iterator<MyClass> iterator = friday.iterator(); iterator.hasNext(); ) {
-            MyClass theClass = iterator.next();
-            if (theClass.retrieveClass().equals(inputClass)) {
-                iterator.remove();
-            }
-        }
+        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        friday.removeIf(condition);
     }
 
     /*
