@@ -1,11 +1,12 @@
 package ui;
 
 import model.WeeklyClasses;
+
 import java.util.Scanner;
 
 // Student classes per week application
 public class WeeklyClassesApp {
-    private WeeklyClasses MySchedule;
+    private WeeklyClasses mySchedule;
     private Scanner input;
 
     // EFFECTS: runs the weekly classes application
@@ -32,17 +33,17 @@ public class WeeklyClassesApp {
                 processCommand(command);
             }
 
-        System.out.println("\nComplete");
+            System.out.println("\nComplete");
+        }
     }
-}
 
 
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
-        if (command.equals("Add a class")) {
+        if (command.equals("1")) {
             addClass();
-        } else if (command.equals("Remove a class")) {
+        } else if (command.equals("2")) {
             removeClass();
         } else {
             System.out.println("Invalid selection");
@@ -52,24 +53,24 @@ public class WeeklyClassesApp {
     // MODIFIES: this
     // EFFECTS: initializes schedule
     private void init() {
-        MySchedule = new WeeklyClasses("Joe");
+        mySchedule = new WeeklyClasses("Joe");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
-        System.out.println("\nSelect from:");
-        System.out.println("\tAdd a class");
-        System.out.println("\tRemove a class");
-        System.out.println("\tComplete");
+        System.out.println("\nSelect number from:");
+        System.out.println("\t1. Add a class");
+        System.out.println("\t2. Remove a class");
+        System.out.println("\t3. Complete");
     }
 
     // MODIFIES: this
     // EFFECTS: adds a class to a particular day in the schedule
     private void addClass() {
         System.out.print("Enter class name/s to add: ");
-        String className = input.nextLine();
+        String className = input.next();
         selectDayAdd(className);
     }
 
@@ -77,7 +78,7 @@ public class WeeklyClassesApp {
     // EFFECTS: removes a class from a particular day in the schedule
     private void removeClass() {
         System.out.print("Enter class name/s to remove: ");
-        String className = input.nextLine();
+        String className = input.next();
         selectDayRemove(className);
     }
 
@@ -85,63 +86,63 @@ public class WeeklyClassesApp {
     private void selectDayAdd(String className) {
         String selection = "";  // force entry into loop
 
-        while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday") ||
-                selection.equals("Thursday") || selection.equals("Friday"))) {
+        while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday")
+                || selection.equals("Thursday") || selection.equals("Friday"))) {
             System.out.println("Monday");
             System.out.println("Tuesday");
             System.out.println("Wednesday");
             System.out.println("Thursday");
             System.out.println("Friday");
             selection = input.next();
-            selection = selection.toLowerCase();
         }
 
         if (selection.equals("Monday")) {
-            MySchedule.addClassMonday(className);
+            mySchedule.addClassMonday(className);
         } else if (selection.equals("Tuesday")) {
-            MySchedule.addClassTuesday(className);
+            mySchedule.addClassTuesday(className);
         } else if (selection.equals("Wednesday")) {
-            MySchedule.addClassWednesday(className);
+            mySchedule.addClassWednesday(className);
         } else if (selection.equals("Thursday")) {
-            MySchedule.addClassThursday(className);
+            mySchedule.addClassThursday(className);
         } else {
-            MySchedule.addClassFriday(className);
+            mySchedule.addClassFriday(className);
         }
-        printSchedule(MySchedule);
+        printSchedule(mySchedule);
     }
 
     private void selectDayRemove(String className) {
         String selection = "";  // force entry into loop
 
-        while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday") ||
-                selection.equals("Thursday") || selection.equals("Friday"))) {
+        while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday")
+                || selection.equals("Thursday") || selection.equals("Friday"))) {
             System.out.println("Monday");
             System.out.println("Tuesday");
             System.out.println("Wednesday");
             System.out.println("Thursday");
             System.out.println("Friday");
             selection = input.next();
-            selection = selection.toLowerCase();
         }
 
         if (selection.equals("Monday")) {
-            MySchedule.removeClassMonday(className);
+            mySchedule.removeClassMonday(className);
         } else if (selection.equals("Tuesday")) {
-            MySchedule.removeClassTuesday(className);
+            mySchedule.removeClassTuesday(className);
         } else if (selection.equals("Wednesday")) {
-            MySchedule.removeClassWednesday(className);
+            mySchedule.removeClassWednesday(className);
         } else if (selection.equals("Thursday")) {
-            MySchedule.removeClassThursday(className);
+            mySchedule.removeClassThursday(className);
         } else {
-            MySchedule.removeClassFriday(className);
+            mySchedule.removeClassFriday(className);
         }
-        printSchedule(MySchedule);
+        printSchedule(mySchedule);
     }
 
     // EFFECTS: prints current schedule to the screen
-    private void printSchedule(WeeklyClasses selected) {
-    System.out.printf("Schedule: \n",selected.toString());
-        }
+    private String printSchedule(WeeklyClasses selected) {
+        // System.out.println(selected);
+        System.out.printf("Schedule: \n %s", selected.toString());
+        return selected.toString();
+    }
 
 }
-   // System.out.printf("Balance: $%.2f\n", selected.getSchedule());
+// System.out.printf("Schedule: \n",  selected.getSchedule());

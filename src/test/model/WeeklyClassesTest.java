@@ -22,34 +22,47 @@ class AccountTest {
     @Test
     void testAddClass() {
         testSchedule.addClassMonday("CPSC110");
-        ArrayList<String> monday = new ArrayList<>();
-        ArrayList<ArrayList<String>> schedule = new ArrayList<>();
-        assertEquals(schedule, testSchedule.getSchedule());
+        assertEquals("[ Monday: [CPSC110]\n" +
+                " Tuesday: []\n" +
+                " Wednesday: []\n" +
+                " Thursday: []\n" +
+                " Friday: []]", testSchedule.getSchedule());
     }
+
+    //ArrayList<String> = new ArrayList<>();
+    //ArrayList<ArrayList<String>> schedule = new ArrayList<>();
+    //testSchedule = new WeeklyClasses();
+   // testSchedule.name ="Indy";
 
     @Test
     void testRemoveClass() {
         testSchedule.removeClassThursday("CPSC110");
-        ArrayList<String> monday = new ArrayList<>();
-        ArrayList<ArrayList<String>> schedule = new ArrayList<>();
-        assertEquals(schedule, testSchedule.getSchedule());
+        assertEquals("[ Monday: []\n" +
+                " Tuesday: []\n" +
+                " Wednesday: []\n" +
+                " Thursday: []\n" +
+                " Friday: []]", testSchedule.getSchedule());
     }
 
-    @Test
+     @Test
     void testAddMultipleClasses() {
         testSchedule.addClassTuesday("CPSC 110");
         testSchedule.addClassTuesday("CPSC 121");
-        ArrayList<String> tuesday = new ArrayList<>();
-        ArrayList<ArrayList<String>> schedule = new ArrayList<>();
-        assertEquals(schedule, testSchedule.getSchedule());
+         assertEquals("[ Monday: []\n" +
+                 " Tuesday: [CPSC110, CPSC121]\n" +
+                 " Wednesday: []\n" +
+                 " Thursday: []\n" +
+                 " Friday: []]", testSchedule.getSchedule());
     }
 
-    @Test
+     @Test
     void testRemoveMultipleClasses() {
-        testSchedule.removeClassWednesday("CPSC 110");
-        testSchedule.removeClassWednesday("CPSC 121");
-        ArrayList<String> wednesday = new ArrayList<>();
-        ArrayList<ArrayList<String>> schedule = new ArrayList<>();
-        assertEquals(schedule, testSchedule.getSchedule());
+         testSchedule.removeClassTuesday("CPSC 110");
+         testSchedule.removeClassTuesday("CPSC 121");
+         assertEquals("[ Monday: []\n" +
+                 " Tuesday: []\n" +
+                 " Wednesday: []\n" +
+                 " Thursday: []\n" +
+                 " Friday: []]", testSchedule.getSchedule());
     }
 }
