@@ -78,8 +78,6 @@ public class WeeklyClasses {
         for (int i = 0; i < monday.size(); i++) {
             if ((monday.get(i).retrieveClass()).equals(inputClass)) {
                 monday.remove(i);
-            } else {
-                ;
             }
         }
     }
@@ -88,8 +86,6 @@ public class WeeklyClasses {
         for (int i = 0; i < tuesday.size(); i++) {
             if ((tuesday.get(i).retrieveClass()).equals(inputClass)) {
                 tuesday.remove(i);
-            } else {
-                ;
             }
         }
     }
@@ -98,8 +94,6 @@ public class WeeklyClasses {
         for (int i = 0; i < wednesday.size(); i++) {
             if ((wednesday.get(i).retrieveClass()).equals(inputClass)) {
                 wednesday.remove(i);
-            } else {
-                ;
             }
         }
     }
@@ -108,8 +102,6 @@ public class WeeklyClasses {
         for (int i = 0; i < thursday.size(); i++) {
             if ((thursday.get(i).retrieveClass()).equals(inputClass)) {
                 thursday.remove(i);
-            } else {
-                ;
             }
         }
     }
@@ -118,8 +110,6 @@ public class WeeklyClasses {
         for (int i = 0; i < friday.size(); i++) {
             if ((friday.get(i).retrieveClass()).equals(inputClass)) {
                 friday.remove(i);
-            } else {
-                ;
             }
         }
     }
