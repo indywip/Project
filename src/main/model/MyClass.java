@@ -1,10 +1,9 @@
 package model;
 
-public class myClass {
+public class MyClass {
     private String classname;
 
-    public myClass() {
-
+    public MyClass() {
     }
 
     public String retrieveClass() {

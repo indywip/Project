@@ -7,11 +7,11 @@ import java.util.List;
 public class WeeklyClasses {
     private String name;                   // the account owner name
     // private ArrayList<ArrayList<String>> schedule;
-    private ArrayList<myClass> monday;
-    private ArrayList<myClass> tuesday;
-    private ArrayList<myClass> wednesday;
-    private ArrayList<myClass> thursday;
-    private ArrayList<myClass> friday;
+    private ArrayList<MyClass> monday;
+    private ArrayList<MyClass> tuesday;
+    private ArrayList<MyClass> wednesday;
+    private ArrayList<MyClass> thursday;
+    private ArrayList<MyClass> friday;
 
     // the current class schedule
 
@@ -46,31 +46,31 @@ public class WeeklyClasses {
      * EFFECTS: class is added to day of the week and updated schedule is returned
      */
     public void addClassMonday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         monday.add(classClass);
     }
 
     public void addClassTuesday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         tuesday.add(classClass);
     }
 
     public void addClassWednesday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         wednesday.add(classClass);
     }
 
     public void addClassThursday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         thursday.add(classClass);
     }
 
     public void addClassFriday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         friday.add(classClass);
     }
@@ -81,31 +81,31 @@ public class WeeklyClasses {
      * EFFECTS: class is removed from day of the week and updated schedule is returned
      */
     public void removeClassMonday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         monday.remove(classClass);
     }
 
     public void removeClassTuesday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         tuesday.remove(classClass);
     }
 
     public void removeClassWednesday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         wednesday.remove(classClass);
     }
 
     public void removeClassThursday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         thursday.remove(classClass);
     }
 
     public void removeClassFriday(String inputClass) {
-        myClass classClass = new myClass();
+        MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
         friday.remove(classClass);
     }

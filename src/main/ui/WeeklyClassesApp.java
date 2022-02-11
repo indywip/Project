@@ -27,7 +27,7 @@ public class WeeklyClassesApp {
             command = input.next();
             command = command.toLowerCase();
 
-            if (command.equals("Done")) {
+            if (command.equals("3")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
