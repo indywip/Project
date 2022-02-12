@@ -118,17 +118,21 @@ public class WeeklyClassesApp {
             System.out.println("Friday");
             selection = input.next();
         }
-
-        if (selection.equals("Monday")) {
-            mySchedule.removeClassMonday(className);
-        } else if (selection.equals("Tuesday")) {
-            mySchedule.removeClassTuesday(className);
-        } else if (selection.equals("Wednesday")) {
-            mySchedule.removeClassWednesday(className);
-        } else if (selection.equals("Thursday")) {
-            mySchedule.removeClassThursday(className);
-        } else {
-            mySchedule.removeClassFriday(className);
+        switch (selection) {
+            case "Monday":
+                mySchedule.removeClassMonday(className);
+                break;
+            case "Tuesday":
+                mySchedule.removeClassTuesday(className);
+                break;
+            case "Wednesday":
+                mySchedule.removeClassWednesday(className);
+                break;
+            case "Thursday":
+                mySchedule.removeClassThursday(className);
+                break;
+            default:
+                mySchedule.removeClassFriday(className);
         }
         printSchedule(mySchedule);
     }
