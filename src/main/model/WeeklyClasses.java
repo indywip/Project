@@ -37,7 +37,7 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: inputClass is a Class that contains a String
+     * REQUIRES: inputClass is a Class containing a String
      * MODIFIES: this
      * EFFECTS: inputted class is added to day of the week and updated schedule is returned
      */
@@ -72,7 +72,7 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: inputClass is a Class that contains a String and is found in getSchedule()
+     * REQUIRES: inputClass is a Class containing String and is found in getSchedule()
      * MODIFIES: this
      * EFFECTS: class inputted is removed from day of the week and updated schedule is returned
      */
