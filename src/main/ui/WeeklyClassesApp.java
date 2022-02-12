@@ -87,7 +87,7 @@ public class WeeklyClassesApp {
 
     // EFFECTS: prompts user to select which day of the week
     private void selectDayAdd(String className) {
-        String selection = "";  // force entry into loop
+        String selection = ""; // force entry into loop
 
         while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday")
                 || selection.equals("Thursday") || selection.equals("Friday"))) {
@@ -98,13 +98,7 @@ public class WeeklyClassesApp {
             System.out.println("Friday");
             selection = input.next();
         }
-
-        if ((selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday")
-                || selection.equals("Thursday") || selection.equals("Friday"))) {
-            mySchedule.addClass(className, selection);
-        } else {
-            System.out.println("Invalid selection");
-        }
+        mySchedule.addClass(className, selection);
         printSchedule(mySchedule);
     }
 
