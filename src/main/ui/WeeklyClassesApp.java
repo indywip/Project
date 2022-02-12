@@ -41,14 +41,18 @@ public class WeeklyClassesApp {
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
-        if (command.equals("1")) {
-            addClass();
-        } else if (command.equals("2")) {
-            removeClass();
-        } else if (command.equals("3")) {
-            printSchedule(mySchedule);
-        } else {
-            System.out.println("Invalid selection");
+        switch (command) {
+            case "1":
+                addClass();
+                break;
+            case "2":
+                removeClass();
+                break;
+            case "3":
+                printSchedule(mySchedule);
+                break;
+            default:
+                System.out.println("Invalid selection");
         }
     }
 
