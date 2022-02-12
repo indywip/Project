@@ -99,16 +99,11 @@ public class WeeklyClassesApp {
             selection = input.next();
         }
 
-        if (selection.equals("Monday")) {
-            mySchedule.addClassMonday(className);
-        } else if (selection.equals("Tuesday")) {
-            mySchedule.addClassTuesday(className);
-        } else if (selection.equals("Wednesday")) {
-            mySchedule.addClassWednesday(className);
-        } else if (selection.equals("Thursday")) {
-            mySchedule.addClassThursday(className);
+        if ((selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday")
+                || selection.equals("Thursday") || selection.equals("Friday"))) {
+            mySchedule.addClass(className, selection);
         } else {
-            mySchedule.addClassFriday(className);
+            System.out.println("Invalid selection");
         }
         printSchedule(mySchedule);
     }

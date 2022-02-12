@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.function.Predicate;
 
 // Represents an account having an owner name and weekly class schedule
@@ -37,42 +36,29 @@ public class WeeklyClasses {
     }
 
     /*
-     * REQUIRES: inputClass is a Class containing a String
+     * REQUIRES: inputClass and inputDay are Strings
      * MODIFIES: this
-     * EFFECTS: inputted class is added to day of the week and updated schedule is returned
+     * EFFECTS: inputted class is added to inputted day of the week and updated schedule is returned
      */
-    public void addClassMonday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        monday.add(classClass);
-    }
 
-    public void addClassTuesday(String inputClass) {
+    public void addClass(String inputClass, String inputDay) {
         MyClass classClass = new MyClass();
         classClass.setClass(inputClass);
-        tuesday.add(classClass);
-    }
-
-    public void addClassWednesday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        wednesday.add(classClass);
-    }
-
-    public void addClassThursday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        thursday.add(classClass);
-    }
-
-    public void addClassFriday(String inputClass) {
-        MyClass classClass = new MyClass();
-        classClass.setClass(inputClass);
-        friday.add(classClass);
+        if (inputDay.equals("Monday")) {
+            monday.add(classClass);
+        } else if (inputDay.equals("Tuesday")) {
+            tuesday.add(classClass);
+        } else if (inputDay.equals("Wednesday")) {
+            wednesday.add(classClass);
+        } else if (inputDay.equals("Thursday")) {
+            thursday.add(classClass);
+        } else {
+            friday.add(classClass);
+        }
     }
 
     /*
-     * REQUIRES: inputClass is a Class containing String and is found in getSchedule()
+     * REQUIRES: inputClass is a String and is found in getSchedule()
      * MODIFIES: this
      * EFFECTS: class inputted is removed from day of the week and updated schedule is returned
      */
