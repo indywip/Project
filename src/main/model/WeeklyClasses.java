@@ -74,30 +74,30 @@ public class WeeklyClasses {
     /*
      * REQUIRES: inputClass is a Class that contains a String and is found in getSchedule()
      * MODIFIES: this
-     * EFFECTS: class inputed is removed from day of the week and updated schedule is returned
+     * EFFECTS: class inputted is removed from day of the week and updated schedule is returned
      */
     public void removeClassMonday(String inputClass) {
-        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         monday.removeIf(condition);
     }
 
     public void removeClassTuesday(String inputClass) {
-        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         tuesday.removeIf(condition);
     }
 
     public void removeClassWednesday(String inputClass) {
-        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         wednesday.removeIf(condition);
     }
 
     public void removeClassThursday(String inputClass) {
-        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         thursday.removeIf(condition);
     }
 
     public void removeClassFriday(String inputClass) {
-        Predicate<MyClass> condition = employee -> employee.retrieveClass().equals(inputClass);
+        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         friday.removeIf(condition);
     }
 
@@ -107,28 +107,28 @@ public class WeeklyClasses {
     @Override
     public String toString() {
         ArrayList<String> mondayStrings = new ArrayList<>();
-        for (int i = 0; i < monday.size(); i++) {
-            mondayStrings.add(monday.get(i).retrieveClass());
+        for (MyClass days : monday) {
+            mondayStrings.add(days.retrieveClass());
         }
 
         ArrayList<String> tuesdayStrings = new ArrayList<>();
-        for (int i = 0; i < tuesday.size(); i++) {
-            tuesdayStrings.add(tuesday.get(i).retrieveClass());
+        for (MyClass days : tuesday) {
+            tuesdayStrings.add(days.retrieveClass());
         }
 
         ArrayList<String> wednesdayStrings = new ArrayList<>();
-        for (int i = 0; i < wednesday.size(); i++) {
-            wednesdayStrings.add(wednesday.get(i).retrieveClass());
+        for (MyClass days : wednesday) {
+            wednesdayStrings.add(days.retrieveClass());
         }
 
         ArrayList<String> thursdayStrings = new ArrayList<>();
-        for (int i = 0; i < thursday.size(); i++) {
-            thursdayStrings.add(thursday.get(i).retrieveClass());
+        for (MyClass days : thursday) {
+            thursdayStrings.add(days.retrieveClass());
         }
 
         ArrayList<String> fridayStrings = new ArrayList<>();
-        for (int i = 0; i < friday.size(); i++) {
-            fridayStrings.add(friday.get(i).retrieveClass());
+        for (MyClass days : friday) {
+            fridayStrings.add(days.retrieveClass());
         }
 
         return "[ Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings
