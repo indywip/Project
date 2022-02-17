@@ -118,6 +118,7 @@ public class WeeklyClassesApp {
             System.out.println("Friday");
             selection = input.next();
         }
+
         switch (selection) {
             case "Monday":
                 mySchedule.removeClassMonday(className);
