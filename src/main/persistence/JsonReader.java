@@ -2,6 +2,7 @@ package persistence;
 
 import model.WeeklyClasses;
 
+import java.util.ArrayList;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -49,34 +50,19 @@ public class JsonReader {
     // MODIFIES: wc
     // EFFECTS: parses thingies from JSON object and adds them to schedule
     private void addDays(WeeklyClasses wc, JSONObject jsonObject) {
-        JSONArray jsonMonday = jsonObject.getJSONArray("Monday");
-        for (Object json : jsonMonday) {
-            JSONObject nextClass = (JSONObject) json;
-            addJsonClass("Monday", wc, nextClass);
-        }
+        ArrayList<String> weekDays = new ArrayList<>();
+        weekDays.add("Monday");
+        weekDays.add("Tuesday");
+        weekDays.add("Wednesday");
+        weekDays.add("Thursday");
+        weekDays.add("Friday");
 
-        JSONArray jsonTuesday = jsonObject.getJSONArray("Tuesday");
-        for (Object json : jsonTuesday) {
-            JSONObject nextClass = (JSONObject) json;
-            addJsonClass("Tuesday", wc, nextClass);
-        }
-
-        JSONArray jsonWednesday = jsonObject.getJSONArray("Wednesday");
-        for (Object json : jsonWednesday) {
-            JSONObject nextClass = (JSONObject) json;
-            addJsonClass("Wednesday", wc, nextClass);
-        }
-
-        JSONArray jsonThursday = jsonObject.getJSONArray("Thursday");
-        for (Object json : jsonThursday) {
-            JSONObject nextClass = (JSONObject) json;
-            addJsonClass("Thursday", wc, nextClass);
-        }
-
-        JSONArray jsonFriday = jsonObject.getJSONArray("Friday");
-        for (Object json : jsonFriday) {
-            JSONObject nextClass = (JSONObject) json;
-            addJsonClass("Friday", wc, nextClass);
+        for (String days : weekDays) {
+            JSONArray jsonDayrulo = jsonObject.getJSONArray(days);
+            for (Object json : jsonDayrulo) {
+                JSONObject nextClass = (JSONObject) json;
+                addJsonClass(days, wc, nextClass);
+            }
         }
     }
 

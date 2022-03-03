@@ -121,9 +121,8 @@ public class WeeklyClasses implements Writable {
             fridayStrings.add(days.retrieveClass());
         }
 
-        return "[ Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings
-                + "\n Wednesday: " + wednesdayStrings + "\n Thursday: " + thursdayStrings
-                + "\n Friday: " + fridayStrings + "]";
+        return "[ Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings + "\n Wednesday: " + wednesdayStrings
+                + "\n Thursday: " + thursdayStrings + "\n Friday: " + fridayStrings + "]";
     }
 
     @Override
