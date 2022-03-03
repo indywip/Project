@@ -1,16 +1,28 @@
 package ui;
 
 import model.WeeklyClasses;
+import persistence.JsonWriter;
+import persistence.JsonReader;
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
 
 // Student classes per week application
 public class WeeklyClassesApp {
     private WeeklyClasses mySchedule;
+    private static final String JSON_STORE = "./data/schedule.json";
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the weekly classes application
-    public WeeklyClassesApp() {
+    public WeeklyClassesApp() throws FileNotFoundException {
+        input = new Scanner(System.in);
+        mySchedule = new WeeklyClasses("Joe's schedule");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runApp();
     }
 
@@ -27,7 +39,7 @@ public class WeeklyClassesApp {
             command = input.next();
             command = command.toLowerCase();
 
-            if (command.equals("4")) {
+            if (command.equals("6")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -51,6 +63,13 @@ public class WeeklyClassesApp {
             case "3":
                 printSchedule(mySchedule);
                 break;
+            case "4":
+                saveSchedule();
+                break;
+
+            case "5":
+                loadSchedule();
+                break;
             default:
                 System.out.println("Invalid selection");
         }
@@ -59,7 +78,7 @@ public class WeeklyClassesApp {
     // MODIFIES: this
     // EFFECTS: initializes schedule
     private void init() {
-        mySchedule = new WeeklyClasses("Joe");
+        mySchedule = new WeeklyClasses("Joe's schedule");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -70,7 +89,9 @@ public class WeeklyClassesApp {
         System.out.println("\t1. Add a class");
         System.out.println("\t2. Remove a class");
         System.out.println("\t3. View current schedule");
-        System.out.println("\t4. Complete");
+        System.out.println("\t4. Save schedule to file");
+        System.out.println("\t5. Load schedule from file");
+        System.out.println("\t6. Complete");
     }
 
     // MODIFIES: this
@@ -142,6 +163,28 @@ public class WeeklyClassesApp {
     private String printSchedule(WeeklyClasses selected) {
         System.out.printf("Schedule: \n %s", selected.toString());
         return selected.toString();
+    }
+
+    private void saveSchedule() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(mySchedule);
+            jsonWriter.close();
+            System.out.println("Saved " + mySchedule.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads weekly classes from file
+    private void loadSchedule() {
+        try {
+            mySchedule = jsonReader.read();
+            System.out.println("Loaded " + mySchedule.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }
 

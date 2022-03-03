@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
 // Represents an account having an owner name and weekly class schedule
-public class WeeklyClasses {
+public class WeeklyClasses implements Writable {
     private String name;                   // the account owner name
     private ArrayList<MyClass> monday;     // arraylist of daily classes
     private ArrayList<MyClass> tuesday;
@@ -121,5 +125,60 @@ public class WeeklyClasses {
                 + "\n Wednesday: " + wednesdayStrings + "\n Thursday: " + thursdayStrings
                 + "\n Friday: " + fridayStrings + "]";
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Name", name);
+        json.put("Monday", mondayToJson());
+        json.put("Tuesday", tuesdayToJson());
+        json.put("Wednesday", wednesdayToJson());
+        json.put("Thursday", thursdayToJson());
+        json.put("Friday", fridayToJson());
+
+        return json;
+    }
+
+    // EFFECTS: returns things in this schedule as a JSON array
+    private JSONArray mondayToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (MyClass c : monday) {
+            jsonArray.put(c.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray tuesdayToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (MyClass c : tuesday) {
+            jsonArray.put(c.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray wednesdayToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (MyClass c : wednesday) {
+            jsonArray.put(c.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray thursdayToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (MyClass c : thursday) {
+            jsonArray.put(c.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray fridayToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (MyClass c : friday) {
+            jsonArray.put(c.toJson());
+        }
+        return jsonArray;
+    }
 }
+
 

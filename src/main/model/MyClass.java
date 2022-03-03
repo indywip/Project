@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a single class
-public class MyClass {
+public class MyClass implements Writable {
     private String classname; // the class name
 
     public MyClass() {
@@ -17,6 +20,13 @@ public class MyClass {
      */
     public void setClass(String myClassName) {
         classname = myClassName;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("classname", classname);
+        return json;
     }
 }
 
