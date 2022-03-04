@@ -17,7 +17,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            WeeklyClasses wc = new WeeklyClasses("My work room");
+            WeeklyClasses wc = new WeeklyClasses("My schedule");
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -29,7 +29,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterEmptySchedule() {
         try {
-            WeeklyClasses wc = new WeeklyClasses("My work room");
+            WeeklyClasses wc = new WeeklyClasses("My schedule");
             JsonWriter writer = new JsonWriter("./data/testWriterEmptySchedule.json");
             writer.open();
             writer.write(wc);
@@ -38,11 +38,11 @@ class JsonWriterTest extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterEmptySchedule.json");
             wc = reader.read();
             assertEquals("My schedule", wc.getName());
-            assertEquals("[ Monday: []\n" +
+            assertEquals("Monday: []\n" +
                     " Tuesday: []\n" +
                     " Wednesday: []\n" +
                     " Thursday: []\n" +
-                    " Friday: []]", wc.getSchedule());
+                    " Friday: []", wc.getSchedule());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
@@ -62,10 +62,15 @@ class JsonWriterTest extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterGeneralSchedule.json");
             wc = reader.read();
             assertEquals("My schedule", wc.getName());
+            assertEquals("Monday: [CPSC110]\n" +
+                    " Tuesday: [CPSC121]\n" +
+                    " Wednesday: []\n" +
+                    " Thursday: []\n" +
+                    " Friday: []", wc.getSchedule());
             // List<Thingy> thingies = wc.getThingies();
             // assertEquals(2, thingies.size());
-            // checkThingy("saw", Category.METALWORK, thingies.get(0));
-            // checkThingy("needle", Category.STITCHING, thingies.get(1));
+            checkClass("CPSC11O", wc.getDay("Monday").get(0));
+            // checkClass("needle", Category.STITCHING, thingies.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");

@@ -34,6 +34,20 @@ public class WeeklyClasses implements Writable {
         return name;
     }
 
+    public ArrayList<MyClass> getDay(String dayName) {
+        if (dayName.equals("Monday")) {
+            return monday;
+        } else if (dayName.equals("Tuesday")) {
+            return tuesday;
+        } else if (dayName.equals("Wednesday")) {
+            return wednesday;
+        } else if (dayName.equals("Thursday")) {
+            return thursday;
+        } else {
+            return friday;
+        }
+    }
+
     public String getSchedule() {
         return toString();
     }

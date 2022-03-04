@@ -43,9 +43,14 @@ class JsonReaderTest extends JsonTest {
         try {
             WeeklyClasses wc = reader.read();
             assertEquals("My schedule", wc.getName());
+            assertEquals("Monday: [CPSC110]\n" +
+                    " Tuesday: [CPSC121]\n" +
+                    " Wednesday: []\n" +
+                    " Thursday: []\n" +
+                    " Friday: []", wc.getSchedule());
             // List<Thingy> thingies = wr.getThingies();
             // assertEquals(2, thingies.size());
-            // checkThingy("needle", Category.STITCHING, thingies.get(0));
+            checkClass("CPSC11O", wc.getDay("Monday").get(0));
             // checkThingy("saw", Category.WOODWORK, thingies.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
