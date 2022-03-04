@@ -10,9 +10,6 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JsonWriterTest extends JsonTest {
-    //NOTE TO CPSC 210 STUDENTS: the strategy in designing tests for the JsonWriter is to
-    //write data to a file and then use the reader to read it back in and check that we
-    //read in a copy of what was written out.
 
     @Test
     void testWriterInvalidFile() {
@@ -67,10 +64,7 @@ class JsonWriterTest extends JsonTest {
                     " Wednesday: []\n" +
                     " Thursday: []\n" +
                     " Friday: []", wc.getSchedule());
-            // List<Thingy> thingies = wc.getThingies();
-            // assertEquals(2, thingies.size());
             checkClass("CPSC11O", wc.getDay("Monday").get(0));
-            // checkClass("needle", Category.STITCHING, thingies.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");

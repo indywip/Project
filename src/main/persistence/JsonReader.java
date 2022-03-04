@@ -48,7 +48,7 @@ public class JsonReader {
     }
 
     // MODIFIES: wc
-    // EFFECTS: parses thingies from JSON object and adds them to schedule
+    // EFFECTS: parses days of the week from JSON object and adds them to schedule
     private void addDays(WeeklyClasses wc, JSONObject jsonObject) {
         ArrayList<String> weekDays = new ArrayList<>();
         weekDays.add("Monday");
@@ -67,7 +67,7 @@ public class JsonReader {
     }
 
     // MODIFIES: wc
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // EFFECTS: parses class  from JSON object and adds it to schedule
     private void addJsonClass(String day, WeeklyClasses wc, JSONObject jsonObject) {
         String name = jsonObject.getString("classname");
         wc.addClass(name, day);
