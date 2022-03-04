@@ -18,14 +18,13 @@ class WeeklyClassesTest {
         assertEquals("Indy", testSchedule.getName());
     }
 
-    /*
+
     @Test
     void testRetrieveDay() {
         testSchedule.addClass("CPSC110", "Monday");
-        assertEquals("Monday: [CPSC110]", testSchedule.getDay("Monday"));
+        assertEquals("CPSC110", testSchedule.getDay("Monday").get(0).retrieveClass());
     }
 
-     */
 
     @Test
     void testAddClass() {
