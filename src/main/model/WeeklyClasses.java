@@ -22,7 +22,6 @@ public class WeeklyClasses implements Writable {
      *          each arraylist is a day of the week and is initialized as empty;
      */
     public WeeklyClasses(String accountName) {
-        // ArrayList<String> initialSchedule
         name = accountName;
         monday = new ArrayList<>();
         tuesday = new ArrayList<>();
@@ -38,6 +37,7 @@ public class WeeklyClasses implements Writable {
     public String getSchedule() {
         return toString();
     }
+
 
     /*
      * REQUIRES: inputClass and inputDay are Strings
@@ -121,8 +121,8 @@ public class WeeklyClasses implements Writable {
             fridayStrings.add(days.retrieveClass());
         }
 
-        return "[ Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings + "\n Wednesday: " + wednesdayStrings
-                + "\n Thursday: " + thursdayStrings + "\n Friday: " + fridayStrings + "]";
+        return "Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings + "\n Wednesday: " + wednesdayStrings
+                + "\n Thursday: " + thursdayStrings + "\n Friday: " + fridayStrings;
     }
 
     @Override
