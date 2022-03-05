@@ -41,11 +41,10 @@ public class WeeklyClassesApp {
 
             if (command.equals("6")) {
                 keepGoing = false;
+                System.out.println("\nComplete");
             } else {
                 processCommand(command);
             }
-
-            System.out.println("\nComplete");
         }
     }
 
@@ -66,7 +65,6 @@ public class WeeklyClassesApp {
             case "4":
                 saveSchedule();
                 break;
-
             case "5":
                 loadSchedule();
                 break;
@@ -116,11 +114,7 @@ public class WeeklyClassesApp {
 
         while (!(selection.equals("Monday") || selection.equals("Tuesday") || selection.equals("Wednesday")
                 || selection.equals("Thursday") || selection.equals("Friday"))) {
-            System.out.println("Monday");
-            System.out.println("Tuesday");
-            System.out.println("Wednesday");
-            System.out.println("Thursday");
-            System.out.println("Friday");
+            System.out.println("Monday\nTuesday\nWednesday\nThursday\nFriday");
             selection = input.next();
         }
         mySchedule.addClass(className, selection);
