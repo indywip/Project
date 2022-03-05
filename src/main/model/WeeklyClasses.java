@@ -30,10 +30,18 @@ public class WeeklyClasses implements Writable {
         friday = new ArrayList<>();
     }
 
+
+    /*
+     * EFFECTS: returns account name of schedule owner
+     */
     public String getName() {
         return name;
     }
 
+
+    /*
+     * EFFECTS: returns the array of a particular day in the week
+     */
     public ArrayList<MyClass> getDay(String dayName) {
         if (dayName.equals("Monday")) {
             return monday;
@@ -48,17 +56,19 @@ public class WeeklyClasses implements Writable {
         }
     }
 
+
+    /*
+     * EFFECTS: returns the schedule as a string
+     */
     public String getSchedule() {
         return toString();
     }
-
 
     /*
      * REQUIRES: inputClass and inputDay are Strings
      * MODIFIES: this
      * EFFECTS: inputted class is added to inputted day of the week and updated schedule is returned
      */
-
     public void addClass(String inputClass, String inputDay) {
         MyClass classClass = new MyClass();
         classClass.setClass(inputClass);

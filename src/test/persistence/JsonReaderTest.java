@@ -41,15 +41,7 @@ class JsonReaderTest extends JsonTest {
     void testReaderGeneralSchedule() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralSchedule.json");
         try {
-            WeeklyClasses wc = new WeeklyClasses("My schedule");
-            wc.addClass("CPSC110", "Monday");
-            wc.addClass("CPSC121", "Tuesday");
-            JsonWriter writer = new JsonWriter("./data/testWriterGeneralSchedule.json");
-            writer.open();
-            writer.write(wc);
-            writer.close();
-
-            wc = reader.read();
+            WeeklyClasses wc = reader.read();
             assertEquals("My schedule", wc.getName());
             assertEquals("Monday: [CPSC110]\n" +
                     " Tuesday: [CPSC121]\n" +
