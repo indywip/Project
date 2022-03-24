@@ -165,11 +165,6 @@ public class WeeklyClasses implements Writable {
                 + "\n" + fridayToString();
     }
 
-    //public String toString() {
-    //    return "Monday: " + mondayToString() + "\n Tuesday: " + tuesdayToString() + "\n Wednesday: "
-    //            + wednesdayToString() + "\n Thursday: " + thursdayToString() + "\n Friday: " + fridayToString();
-    //}
-
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

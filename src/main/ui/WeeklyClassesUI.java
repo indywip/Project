@@ -1,6 +1,5 @@
 package ui;
 
-import ui.WeeklyClassesApp;
 import model.WeeklyClasses;
 import persistence.JsonWriter;
 import persistence.JsonReader;
@@ -15,10 +14,6 @@ import java.io.IOException;
 
 public class WeeklyClassesUI extends JFrame implements ActionListener {
     private JLabel label;
-    private JLabel label2;
-    private JLabel label3;
-    private JLabel label4;
-    private JLabel label5;
     private JTextField field;
     private WeeklyClasses mySchedule;
     private JLabel header;
@@ -48,23 +43,13 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         btn2.addActionListener(this);
         btn3.addActionListener(this);
         btn4.addActionListener(this);
-        btn5.addActionListener(this); // Sets "this" object as an action listener for btn
-        // so that when the btn is clicked,
-        // this.actionPerformed(ActionEvent e) will be called.
-        // You could also set a different object, if you wanted
-        // a different object to respond to the button click
+        btn5.addActionListener(this);
         label = new JLabel("<html>" + mySchedule.mondayToString() + "<br><br/>" + mySchedule.tuesdayToString()
                 + "<br><br/>" + mySchedule.wednesdayToString() + "<br><br/>" + mySchedule.thursdayToString()
                 + "<br><br/>" + mySchedule.fridayToString() + "</html>");
-        //label2 = new JLabel("<html>" + mySchedule.tuesdayToString() + "<br><br/></html>");
-        //label3 = new JLabel(mySchedule.wednesdayToString());
-        //label4 = new JLabel(mySchedule.thursdayToString());
-        //label5 = new JLabel(mySchedule.fridayToString());
         field = new JTextField(6);
         header = new JLabel(new ImageIcon("header.png"));
-
         add(header);
-
         add(btn1);
         add(btn2);
         add(btn3);
@@ -83,7 +68,8 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                 + "<br><br/>" + mySchedule.fridayToString() + "</html>");
     }
 
-    //This is the method that is called when the JButton btn is clicked
+    // This is the method that is called when the JButton btn is clicked
+    // EFFECTS: performs the user stories based on the btn pressed
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void actionPerformed(ActionEvent e) {
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
@@ -150,6 +136,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: prints out schedule in new window
     private void createUIComponents() {
         JFrame frame = new JFrame();
         frame.setTitle("My Schedule");
@@ -159,12 +146,8 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         frame.add(label);
     }
 
-    // starts the application
+    // EFFECTS: starts the application
     public static void main(String[] args) {
-        // try {
         new WeeklyClassesUI();
-        // } catch (FileNotFoundException e) {
-        //   System.out.println("Unable to run application: file not found");
-        //}
     }
 }
