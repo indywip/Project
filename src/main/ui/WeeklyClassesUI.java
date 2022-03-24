@@ -21,7 +21,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     private WeeklyClasses mySchedule;
     private JLabel header;
 
-    @SuppressWarnings("checkstyle:MethodLength")
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public WeeklyClassesUI() {
         super("Class Scheduling App");
         mySchedule = new WeeklyClasses("My schedule");
@@ -49,10 +49,10 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         // You could also set a different object, if you wanted
         // a different object to respond to the button click
         label = new JLabel("Monday \n Tuesday \n Wednesday \n Thursday \n Friday");
-        label2 = new JLabel("Tuesday");
-        label3 = new JLabel("Wednesday");
-        label4 = new JLabel("Thursday");
-        label5 = new JLabel("Friday");
+        //label2 = new JLabel("Tuesday");
+        //label3 = new JLabel("Wednesday");
+        //label4 = new JLabel("Thursday");
+        //label5 = new JLabel("Friday");
         field = new JTextField(6);
         add(btn1);
         add(btn2);
@@ -71,7 +71,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     }
 
     //This is the method that is called when the JButton btn is clicked
-    @SuppressWarnings("checkstyle:MethodLength")
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void actionPerformed(ActionEvent e) {
         createUIComponents();
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
