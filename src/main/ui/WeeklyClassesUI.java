@@ -62,6 +62,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         //label5 = new JLabel(mySchedule.fridayToString());
         field = new JTextField(6);
         header = new JLabel(new ImageIcon("header.png"));
+
         add(header);
 
         add(btn1);
@@ -94,8 +95,9 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                     null,
                     optionsToChoose,
                     optionsToChoose[3]);
-            mySchedule.addClass(field.getText(), getDay);
-            //label.setText("Monday: " + field.getText());
+            if (getDay != null) {
+                mySchedule.addClass(field.getText(), getDay);
+            }
             printSchedule();
 
         } else if (e.getActionCommand().equals("Remove")) {
@@ -106,18 +108,19 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                     null,
                     optionsToChoose,
                     optionsToChoose[3]);
-            if (getDay.equals("Monday")) {
-                mySchedule.removeClassMonday(field.getText());
-            } else if (getDay.equals("Tuesday")) {
-                mySchedule.removeClassTuesday(field.getText());
-            } else if (getDay.equals("Wednesday")) {
-                mySchedule.removeClassWednesday(field.getText());
-            } else if (getDay.equals("Thursday")) {
-                mySchedule.removeClassThursday(field.getText());
-            } else {
-                mySchedule.removeClassFriday(field.getText());
+            if (getDay != null) {
+                if (getDay.equals("Monday")) {
+                    mySchedule.removeClassMonday(field.getText());
+                } else if (getDay.equals("Tuesday")) {
+                    mySchedule.removeClassTuesday(field.getText());
+                } else if (getDay.equals("Wednesday")) {
+                    mySchedule.removeClassWednesday(field.getText());
+                } else if (getDay.equals("Thursday")) {
+                    mySchedule.removeClassThursday(field.getText());
+                } else {
+                    mySchedule.removeClassFriday(field.getText());
+                }
             }
-            //label.setText("Monday: " + field.getText());
             printSchedule();
         } else if (e.getActionCommand().equals("Save")) {
             jsonWriter = new JsonWriter(JSON_STORE);
@@ -142,7 +145,18 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
             } catch (IOException g) {
                 JOptionPane.showMessageDialog(null, "Unable to read from file: " + JSON_STORE);
             }
+        } else if (e.getActionCommand().equals("View")) {
+            createUIComponents();
         }
+    }
+
+    private void createUIComponents() {
+        JFrame frame = new JFrame();
+        frame.setTitle("My Schedule");
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setSize(600, 200);
+        frame.setVisible(true);
+        frame.add(label);
     }
 
     // starts the application
