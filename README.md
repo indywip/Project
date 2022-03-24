@@ -19,6 +19,5 @@ would ensure that I don't miss any of my classes.
 - As a user, I want to be able to save my schedule to file 
 - As a user, I want to be able to be able to load my schedule from file
 
-*Source Attribution: The code used in this project is based on the TellerApp 
-and the Json Serialization Demo codes provided in class.*
+*Source Attribution: The code used in this project is based on the TellerApp, the Json Serialization Demo, and the LabelChanger codes provided in class.*
  
