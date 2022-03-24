@@ -109,10 +109,10 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
             //label.setText("Monday: " + field.getText());
             label.setText(mySchedule.toString());
         } //else if (e.getActionCommand().equals("View")) {
-          //  mySchedule.toString();
-       // } else if (e.getActionCommand().equals("Save")) {
-            //
-       // }
+        //  mySchedule.toString();
+        // } else if (e.getActionCommand().equals("Save")) {
+        //
+        // }
     }
 
     private void createUIComponents() {
