@@ -166,6 +166,7 @@ public class WeeklyClassesApp {
         }
     }
 
+
     // MODIFIES: this
     // EFFECTS: loads weekly classes from file
     private void loadSchedule() {
