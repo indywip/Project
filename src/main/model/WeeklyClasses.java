@@ -118,36 +118,57 @@ public class WeeklyClasses implements Writable {
     /*
      * EFFECTS: returns a string representation of schedule
      */
-    @Override
-    public String toString() {
+
+    public String mondayToString() {
         ArrayList<String> mondayStrings = new ArrayList<>();
         for (MyClass days : monday) {
             mondayStrings.add(days.retrieveClass());
         }
+        return "Monday: " + mondayStrings;
+    }
 
+    public String tuesdayToString() {
         ArrayList<String> tuesdayStrings = new ArrayList<>();
         for (MyClass days : tuesday) {
             tuesdayStrings.add(days.retrieveClass());
         }
+        return "Tuesday: " + tuesdayStrings;
+    }
 
+    public String wednesdayToString() {
         ArrayList<String> wednesdayStrings = new ArrayList<>();
         for (MyClass days : wednesday) {
             wednesdayStrings.add(days.retrieveClass());
         }
+        return "Wednesday: " + wednesdayStrings;
+    }
 
+    public String thursdayToString() {
         ArrayList<String> thursdayStrings = new ArrayList<>();
         for (MyClass days : thursday) {
             thursdayStrings.add(days.retrieveClass());
         }
+        return "Thursday: " + thursdayStrings;
+    }
 
+    public String fridayToString() {
         ArrayList<String> fridayStrings = new ArrayList<>();
         for (MyClass days : friday) {
             fridayStrings.add(days.retrieveClass());
         }
-
-        return "Monday: " + mondayStrings + "\n Tuesday: " + tuesdayStrings + "\n Wednesday: " + wednesdayStrings
-                + "\n Thursday: " + thursdayStrings + "\n Friday: " + fridayStrings;
+        return "Friday: " + fridayStrings;
     }
+
+    @Override
+    public String toString() {
+        return mondayToString() + "\n" + tuesdayToString() + "\n" + wednesdayToString() + "\n" + thursdayToString()
+                + "\n" + fridayToString();
+    }
+
+    //public String toString() {
+    //    return "Monday: " + mondayToString() + "\n Tuesday: " + tuesdayToString() + "\n Wednesday: "
+    //            + wednesdayToString() + "\n Thursday: " + thursdayToString() + "\n Friday: " + fridayToString();
+    //}
 
     @Override
     public JSONObject toJson() {

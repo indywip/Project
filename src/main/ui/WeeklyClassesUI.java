@@ -15,10 +15,10 @@ import java.io.IOException;
 
 public class WeeklyClassesUI extends JFrame implements ActionListener {
     private JLabel label;
-    //private JLabel label2;
-    //private JLabel label3;
-    //private JLabel label4;
-    //private JLabel label5;
+    private JLabel label2;
+    private JLabel label3;
+    private JLabel label4;
+    private JLabel label5;
     private JTextField field;
     private WeeklyClasses mySchedule;
     private JLabel header;
@@ -31,7 +31,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         super("Class Scheduling App");
         mySchedule = new WeeklyClasses("My schedule");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 400));
+        setPreferredSize(new Dimension(800, 500));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(0, 13, 13, 13));
         setLayout(new FlowLayout());
         JButton btn1 = new JButton("Add a class");
@@ -53,11 +53,13 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         // this.actionPerformed(ActionEvent e) will be called.
         // You could also set a different object, if you wanted
         // a different object to respond to the button click
-        label = new JLabel(mySchedule.toString());
-        //label2 = new JLabel("Tuesday");
-        //label3 = new JLabel("Wednesday");
-        //label4 = new JLabel("Thursday");
-        //label5 = new JLabel("Friday");
+        label = new JLabel("<html>" + mySchedule.mondayToString() + "<br><br/>" + mySchedule.tuesdayToString()
+                + "<br><br/>" + mySchedule.wednesdayToString() + "<br><br/>" + mySchedule.thursdayToString()
+                + "<br><br/>" + mySchedule.fridayToString() + "</html>");
+        //label2 = new JLabel("<html>" + mySchedule.tuesdayToString() + "<br><br/></html>");
+        //label3 = new JLabel(mySchedule.wednesdayToString());
+        //label4 = new JLabel(mySchedule.thursdayToString());
+        //label5 = new JLabel(mySchedule.fridayToString());
         field = new JTextField(6);
         header = new JLabel(new ImageIcon("header.png"));
         add(header);
@@ -68,14 +70,16 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         add(btn4);
         add(btn5);
         add(label);
-        //add(label2);
-        //add(label3);
-        //add(label4);
-        //add(label5);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+    }
+
+    public void printSchedule() {
+        label.setText("<html>" + mySchedule.mondayToString() + "<br><br/>" + mySchedule.tuesdayToString()
+                + "<br><br/>" + mySchedule.wednesdayToString() + "<br><br/>" + mySchedule.thursdayToString()
+                + "<br><br/>" + mySchedule.fridayToString() + "</html>");
     }
 
     //This is the method that is called when the JButton btn is clicked
@@ -83,7 +87,6 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         if (e.getActionCommand().equals("Add")) {
-
             String getDay = (String) JOptionPane.showInputDialog(
                     null, field,
                     "Choose day of the week",
@@ -93,7 +96,8 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                     optionsToChoose[3]);
             mySchedule.addClass(field.getText(), getDay);
             //label.setText("Monday: " + field.getText());
-            label.setText(mySchedule.toString());
+            printSchedule();
+
         } else if (e.getActionCommand().equals("Remove")) {
             String getDay = (String) JOptionPane.showInputDialog(
                     null, field,
@@ -114,7 +118,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                 mySchedule.removeClassFriday(field.getText());
             }
             //label.setText("Monday: " + field.getText());
-            label.setText(mySchedule.toString());
+            printSchedule();
         } else if (e.getActionCommand().equals("Save")) {
             jsonWriter = new JsonWriter(JSON_STORE);
             try {
@@ -134,25 +138,11 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                 mySchedule = jsonReader.read();
                 JOptionPane.showMessageDialog(null, "Loaded " + mySchedule.getName()
                         + " from " + JSON_STORE);
-                label.setText(mySchedule.toString());
+                printSchedule();
             } catch (IOException g) {
                 JOptionPane.showMessageDialog(null, "Unable to read from file: " + JSON_STORE);
             }
         }
-    }
-
-    private void createUIComponents() {
-        header = new JLabel(new ImageIcon("header.png"));
-        header.setHorizontalTextPosition(JLabel.CENTER);
-        header.setVerticalTextPosition(SwingConstants.TOP);
-
-
-        //JFrame frame = new JFrame();
-        //frame.setTitle("Tobs");
-        //frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //frame.setSize(900, 400);
-        //frame.setVisible(true);
-        //frame.add(header);
     }
 
     // starts the application

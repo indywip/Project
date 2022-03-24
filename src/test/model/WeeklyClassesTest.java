@@ -25,25 +25,54 @@ class WeeklyClassesTest {
         assertEquals("CPSC110", testSchedule.getDay("Monday").get(0).retrieveClass());
     }
 
+    @Test
+    void testPrintMonday() {
+        testSchedule.addClass("CPSC110", "Monday");
+        assertEquals("Monday: [CPSC110]", testSchedule.mondayToString());
+    }
+
+    @Test
+    void testPrintTuesday() {
+        testSchedule.addClass("CPSC110", "Tuesday");
+        assertEquals("Tuesday: [CPSC110]", testSchedule.tuesdayToString());
+    }
+
+    @Test
+    void testPrintWednesday() {
+        testSchedule.addClass("CPSC110", "Wednesday");
+        assertEquals("Wednesday: [CPSC110]", testSchedule.wednesdayToString());
+    }
+
+    @Test
+    void testPrintThursday() {
+        testSchedule.addClass("CPSC110", "Thursday");
+        assertEquals("Thursday: [CPSC110]", testSchedule.thursdayToString());
+    }
+
+    @Test
+    void testPrintFriday() {
+        testSchedule.addClass("CPSC110", "Friday");
+        assertEquals("Friday: [CPSC110]", testSchedule.fridayToString());
+    }
 
     @Test
     void testAddClass() {
         testSchedule.addClass("CPSC110", "Monday");
         assertEquals("Monday: [CPSC110]\n" +
-                " Tuesday: []\n" +
-                " Wednesday: []\n" +
-                " Thursday: []\n" +
-                " Friday: []", testSchedule.getSchedule());
+                "Tuesday: []\n" +
+                "Wednesday: []\n" +
+                "Thursday: []\n" +
+                "Friday: []", testSchedule.getSchedule());
     }
 
     @Test
     void testRemoveClassEmpty() {
         testSchedule.removeClassTuesday("CPSC110");
         assertEquals("Monday: []\n" +
-                " Tuesday: []\n" +
-                " Wednesday: []\n" +
-                " Thursday: []\n" +
-                " Friday: []", testSchedule.getSchedule());
+                "Tuesday: []\n" +
+                "Wednesday: []\n" +
+                "Thursday: []\n" +
+                "Friday: []", testSchedule.getSchedule());
     }
 
     @Test
@@ -51,33 +80,33 @@ class WeeklyClassesTest {
         testSchedule.addClass("CPSC110", "Thursday");
         testSchedule.removeClassThursday("CPSC110");
         assertEquals("Monday: []\n" +
-                " Tuesday: []\n" +
-                " Wednesday: []\n" +
-                " Thursday: []\n" +
-                " Friday: []", testSchedule.getSchedule());
+                "Tuesday: []\n" +
+                "Wednesday: []\n" +
+                "Thursday: []\n" +
+                "Friday: []", testSchedule.getSchedule());
     }
 
     @Test
     void testAddMultipleClasses() {
-        testSchedule.addClass("CPSC 110", "Wednesday");
-        testSchedule.addClass("CPSC 121", "Wednesday");
+        testSchedule.addClass("CPSC110", "Wednesday");
+        testSchedule.addClass("CPSC121", "Wednesday");
         assertEquals("Monday: []\n" +
-                " Tuesday: []\n" +
-                " Wednesday: [CPSC110, CPSC121]\n" +
-                " Thursday: []\n" +
-                " Friday: []", testSchedule.getSchedule());
+                "Tuesday: []\n" +
+                "Wednesday: [CPSC110, CPSC121]\n" +
+                "Thursday: []\n" +
+                "Friday: []", testSchedule.getSchedule());
     }
 
     @Test
     void testRemoveMultipleClasses() {
-        testSchedule.addClass("CPSC 110", "Friday");
-        testSchedule.addClass("CPSC 121", "Friday");
-        testSchedule.removeClassFriday("CPSC 110");
-        testSchedule.removeClassFriday("CPSC 121");
+        testSchedule.addClass("CPSC110", "Friday");
+        testSchedule.addClass("CPSC121", "Friday");
+        testSchedule.removeClassFriday("CPSC110");
+        testSchedule.removeClassFriday("CPSC121");
         assertEquals("Monday: []\n" +
-                " Tuesday: []\n" +
-                " Wednesday: []\n" +
-                " Thursday: []\n" +
-                " Friday: []", testSchedule.getSchedule());
+                "Tuesday: []\n" +
+                "Wednesday: []\n" +
+                "Thursday: []\n" +
+                "Friday: []", testSchedule.getSchedule());
     }
 }
