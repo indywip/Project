@@ -24,7 +24,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public WeeklyClassesUI() {
         super("Class Scheduling App");
-        mySchedule = new WeeklyClasses("My schedule");
+        mySchedule = new WeeklyClasses("my schedule");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 500));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(0, 13, 13, 13));
@@ -70,69 +70,77 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
 
     // This is the method that is called when the JButton btn is clicked
     // EFFECTS: performs the user stories based on the btn pressed
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void actionPerformed(ActionEvent e) {
-        String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         if (e.getActionCommand().equals("Add")) {
-            String getDay = (String) JOptionPane.showInputDialog(
-                    null, field,
-                    "Choose day of the week",
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    optionsToChoose,
-                    optionsToChoose[3]);
-            if (getDay != null) {
-                mySchedule.addClass(field.getText(), getDay);
-            }
-            printSchedule();
-
+            addClass();
         } else if (e.getActionCommand().equals("Remove")) {
-            String getDay = (String) JOptionPane.showInputDialog(
-                    null, field,
-                    "Choose day of the week",
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    optionsToChoose,
-                    optionsToChoose[3]);
-            if (getDay != null) {
-                if (getDay.equals("Monday")) {
-                    mySchedule.removeClassMonday(field.getText());
-                } else if (getDay.equals("Tuesday")) {
-                    mySchedule.removeClassTuesday(field.getText());
-                } else if (getDay.equals("Wednesday")) {
-                    mySchedule.removeClassWednesday(field.getText());
-                } else if (getDay.equals("Thursday")) {
-                    mySchedule.removeClassThursday(field.getText());
-                } else {
-                    mySchedule.removeClassFriday(field.getText());
-                }
-            }
-            printSchedule();
+            removeClass();
         } else if (e.getActionCommand().equals("Save")) {
-            jsonWriter = new JsonWriter(JSON_STORE);
-            try {
-                jsonWriter.open();
-                jsonWriter.write(mySchedule);
-                jsonWriter.close();
-                //System.out.println("Saved " + mySchedule.getName() + " to " + JSON_STORE);
-                JOptionPane.showMessageDialog(null, "Saved " + mySchedule.getName() + " to "
-                        + JSON_STORE);
-            } catch (FileNotFoundException f) {
-                JOptionPane.showMessageDialog(null, "Unable to write to file: " + JSON_STORE);
-            }
-
+            saveMySchedule();
         } else if (e.getActionCommand().equals("Load")) {
-            jsonReader = new JsonReader(JSON_STORE);
-            try {
-                mySchedule = jsonReader.read();
-                JOptionPane.showMessageDialog(null, "Loaded " + mySchedule.getName()
-                        + " from " + JSON_STORE);
-                printSchedule();
-            } catch (IOException g) {
-                JOptionPane.showMessageDialog(null, "Unable to read from file: " + JSON_STORE);
-            }
+            loadMySchedule();
         } else if (e.getActionCommand().equals("View")) {
             createUIComponents();
+        }
+    }
+
+    // EFFECTS: adds class to schedule by inputting its name then selecting day from drop down
+    public void addClass() {
+        String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        String getDay = (String) JOptionPane.showInputDialog(null, field, "Choose day of the week",
+                JOptionPane.QUESTION_MESSAGE, null, optionsToChoose, optionsToChoose[3]);
+        if (getDay != null) {
+            mySchedule.addClass(field.getText(), getDay);
+        }
+        printSchedule();
+    }
+
+    // EFFECTS: removes class from schedule by inputting its name then selecting day from drop down
+    public void removeClass() {
+        String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        String getDay = (String) JOptionPane.showInputDialog(
+                null, field, "Choose day of the week", JOptionPane.QUESTION_MESSAGE, null,
+                optionsToChoose, optionsToChoose[3]);
+        if (getDay != null) {
+            if (getDay.equals("Monday")) {
+                mySchedule.removeClassMonday(field.getText());
+            } else if (getDay.equals("Tuesday")) {
+                mySchedule.removeClassTuesday(field.getText());
+            } else if (getDay.equals("Wednesday")) {
+                mySchedule.removeClassWednesday(field.getText());
+            } else if (getDay.equals("Thursday")) {
+                mySchedule.removeClassThursday(field.getText());
+            } else {
+                mySchedule.removeClassFriday(field.getText());
+            }
+        }
+        printSchedule();
+    }
+
+    // EFFECTS: saves schedule by writing it to file
+    public void saveMySchedule() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        try {
+            jsonWriter.open();
+            jsonWriter.write(mySchedule);
+            jsonWriter.close();
+            JOptionPane.showMessageDialog(null, "Saved " + mySchedule.getName() + " to "
+                    + JSON_STORE);
+        } catch (FileNotFoundException f) {
+            JOptionPane.showMessageDialog(null, "Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // EFFECTS: loads schedule by reading it from file
+    public void loadMySchedule() {
+        jsonReader = new JsonReader(JSON_STORE);
+        try {
+            mySchedule = jsonReader.read();
+            JOptionPane.showMessageDialog(null, "Loaded " + mySchedule.getName()
+                    + " from " + JSON_STORE);
+            printSchedule();
+        } catch (IOException g) {
+            JOptionPane.showMessageDialog(null, "Unable to read from file: " + JSON_STORE);
         }
     }
 
