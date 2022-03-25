@@ -163,7 +163,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     public static void splash() {
         JWindow window = new JWindow();
         window.getContentPane().add(
-                new JLabel("", new ImageIcon("tobs.jpg"), SwingConstants.CENTER));
+                new JLabel("", new ImageIcon("splash.png"), SwingConstants.CENTER));
         window.setBounds(285, 200, 800, 500);
         window.setVisible(true);
         try {
