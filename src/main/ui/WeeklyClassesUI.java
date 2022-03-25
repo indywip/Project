@@ -24,6 +24,8 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public WeeklyClassesUI() {
         super("Class Scheduling App");
+
+
         mySchedule = new WeeklyClasses("my schedule");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 500));
@@ -158,4 +160,5 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new WeeklyClassesUI();
     }
+
 }
