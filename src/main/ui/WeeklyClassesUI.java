@@ -90,7 +90,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     public void addClass() {
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String getDay = (String) JOptionPane.showInputDialog(null, field, "Choose day of the week",
-                JOptionPane.QUESTION_MESSAGE, new ImageIcon("tobstiny.jpg"), optionsToChoose, optionsToChoose[3]);
+                JOptionPane.QUESTION_MESSAGE, null, optionsToChoose, optionsToChoose[3]);
         if (getDay != null) {
             mySchedule.addClass(field.getText(), getDay);
         }
@@ -102,8 +102,8 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     public void removeClass() {
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
         String getDay = (String) JOptionPane.showInputDialog(
-                null, field, "Choose day of the week", JOptionPane.QUESTION_MESSAGE,
-                new ImageIcon("tobstiny.jpg"), optionsToChoose, optionsToChoose[3]);
+                null, field, "Choose day of the week", JOptionPane.QUESTION_MESSAGE, null,
+                optionsToChoose, optionsToChoose[3]);
         if (getDay != null) {
             if (getDay.equals("Monday")) {
                 mySchedule.removeClassMonday(field.getText());
