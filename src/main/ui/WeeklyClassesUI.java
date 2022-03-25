@@ -158,18 +158,6 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
 
     // EFFECTS: starts the application
     public static void main(String[] args) {
-        JWindow window = new JWindow();
-        window.getContentPane().add(
-                new JLabel("", new ImageIcon("tobs.jpg"), SwingConstants.CENTER));
-        window.setBounds(285, 200, 800, 500);
-        window.setVisible(true);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        window.setVisible(false);
-
         new WeeklyClassesUI();
     }
 }
