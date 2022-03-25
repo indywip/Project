@@ -97,6 +97,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         printSchedule();
     }
 
+
     // EFFECTS: removes class from schedule by inputting its name then selecting day from drop down
     public void removeClass() {
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
