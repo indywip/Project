@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// Student classes per week application UI
 public class WeeklyClassesUI extends JFrame implements ActionListener {
     private JLabel label;
     private JTextField field;
@@ -62,6 +63,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         setResizable(false);
     }
 
+    // EFFECTS: prints formatted schedule in the application interface
     public void printSchedule() {
         label.setText("<html>" + mySchedule.mondayToString() + "<br><br/>" + mySchedule.tuesdayToString()
                 + "<br><br/>" + mySchedule.wednesdayToString() + "<br><br/>" + mySchedule.thursdayToString()
@@ -95,6 +97,8 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         printSchedule();
     }
 
+    // REQUIRES: class must be in the schedule and the selected day
+    // MODIFIES: this
     // EFFECTS: removes class from schedule by inputting its name then selecting day from drop down
     public void removeClass() {
         String[] optionsToChoose = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};

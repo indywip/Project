@@ -155,6 +155,7 @@ public class WeeklyClassesApp {
         return selected.toString();
     }
 
+    // EFFECTS: saves weekly classes to file
     private void saveSchedule() {
         try {
             jsonWriter.open();
