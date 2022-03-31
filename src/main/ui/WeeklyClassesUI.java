@@ -197,7 +197,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
 
     // EFFECTS: starts the application
     public static void main(String[] args) {
-        Runtime r = Runtime.getRuntime();
+        //Runtime r = Runtime.getRuntime();
         //r.addShutdownHook(new MyThread());
 
         splash();
