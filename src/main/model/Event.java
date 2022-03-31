@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 /**
- * Represents an alarm system event.
+ * Represents an schedule event.
  */
 public class Event {
     private static final int HASH_CONSTANT = 13;
@@ -43,11 +43,13 @@ public class Event {
 
     @Override
     public boolean equals(Object other) {
-        if (other == null)
+        if (other == null) {
             return false;
+        }
 
-        if (other.getClass() != this.getClass())
+        if (other.getClass() != this.getClass()) {
             return false;
+        }
 
         Event otherEvent = (Event) other;
 
