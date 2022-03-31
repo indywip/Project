@@ -1,6 +1,8 @@
 package ui;
 
 import model.WeeklyClasses;
+import model.EventLog;
+import model.Event;
 import persistence.JsonWriter;
 import persistence.JsonReader;
 
@@ -95,6 +97,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
             mySchedule.addClass(field.getText(), getDay);
         }
         printSchedule();
+        EventLog.getInstance();
     }
 
     // REQUIRES: class must be in the schedule and the selected day
@@ -119,6 +122,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
             }
         }
         printSchedule();
+        EventLog.getInstance();
     }
 
     // EFFECTS: saves schedule by writing it to file
@@ -158,6 +162,12 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         frame.add(label);
     }
 
+    public static void printLog(EventLog el) {
+        for (Event next : el) {
+            System.out.println(next.toString() + "\n\n");
+        }
+    }
+
 
     // EFFECTS: creates a splash screen
     public static void splash() {
@@ -174,9 +184,19 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         window.setVisible(false);
     }
 
+    private static class MyThread extends Thread {
+
+        public void run() {
+            printLog(EventLog.getInstance());
+        }
+    }
+
 
     // EFFECTS: starts the application
     public static void main(String[] args) {
+        Runtime r = Runtime.getRuntime();
+        r.addShutdownHook(new MyThread());
+
         splash();
         new WeeklyClassesUI();
     }

@@ -74,15 +74,21 @@ public class WeeklyClasses implements Writable {
         classClass.setClass(inputClass);
         if (inputDay.equals("Monday")) {
             monday.add(classClass);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " added to Monday"));
         } else if (inputDay.equals("Tuesday")) {
             tuesday.add(classClass);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " added to Tuesday"));
         } else if (inputDay.equals("Wednesday")) {
             wednesday.add(classClass);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " added to Wednesday"));
         } else if (inputDay.equals("Thursday")) {
             thursday.add(classClass);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " added to Thursday"));
         } else {
             friday.add(classClass);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " added to Friday"));
         }
+        // EventLog.getInstance().logEvent(new Event("Class added to schedule"));
     }
 
     /*
@@ -93,26 +99,31 @@ public class WeeklyClasses implements Writable {
     public void removeClassMonday(String inputClass) {
         Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         monday.removeIf(condition);
+        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Monday"));
     }
 
     public void removeClassTuesday(String inputClass) {
         Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         tuesday.removeIf(condition);
+        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Tuesday"));
     }
 
     public void removeClassWednesday(String inputClass) {
         Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         wednesday.removeIf(condition);
+        EventLog.getInstance().logEvent(new Event("Class" + inputClass + " removed from Wednesday"));
     }
 
     public void removeClassThursday(String inputClass) {
         Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         thursday.removeIf(condition);
+        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Thursday"));
     }
 
     public void removeClassFriday(String inputClass) {
         Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
         friday.removeIf(condition);
+        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Friday"));
     }
 
     /*
