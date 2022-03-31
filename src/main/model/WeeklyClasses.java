@@ -88,7 +88,6 @@ public class WeeklyClasses implements Writable {
             friday.add(classClass);
             EventLog.getInstance().logEvent(new Event("Class " + inputClass + " added to Friday"));
         }
-        // EventLog.getInstance().logEvent(new Event("Class added to schedule"));
     }
 
     /*
