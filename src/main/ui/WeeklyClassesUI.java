@@ -97,7 +97,6 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
             mySchedule.addClass(field.getText(), getDay);
         }
         printSchedule();
-        EventLog.getInstance();
     }
 
     // REQUIRES: class must be in the schedule and the selected day
@@ -122,7 +121,6 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
             }
         }
         printSchedule();
-        EventLog.getInstance();
     }
 
     // EFFECTS: saves schedule by writing it to file
