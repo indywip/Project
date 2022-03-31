@@ -184,7 +184,6 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         window.setVisible(false);
     }
 
-    /*
     private static class MyThread extends Thread {
 
         // EFFECTS: prints log of all events that occurred
@@ -193,12 +192,10 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         }
     }
 
-     */
-
     // EFFECTS: starts the application
     public static void main(String[] args) {
-        //Runtime r = Runtime.getRuntime();
-        //r.addShutdownHook(new MyThread());
+        Runtime r = Runtime.getRuntime();
+        r.addShutdownHook(new MyThread());
 
         splash();
         new WeeklyClassesUI();
