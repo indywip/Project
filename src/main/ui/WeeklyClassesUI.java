@@ -6,6 +6,7 @@ import model.Event;
 import persistence.JsonWriter;
 import persistence.JsonReader;
 
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -22,9 +23,10 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
     private JLabel header;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    private ArrayList<JButton> buttons;
+    private JButton btn;
     private static final String JSON_STORE = "./data/schedule.json";
 
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public WeeklyClassesUI() {
         super("Class Scheduling App");
         mySchedule = new WeeklyClasses("my schedule");
@@ -32,37 +34,36 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         setPreferredSize(new Dimension(800, 500));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(0, 13, 13, 13));
         setLayout(new FlowLayout());
-        JButton btn1 = new JButton("Add a class");
-        JButton btn2 = new JButton("Remove a class");
-        JButton btn3 = new JButton("View my schedule");
-        JButton btn4 = new JButton("Save my schedule");
-        JButton btn5 = new JButton("Load my schedule");
-        btn1.setActionCommand("Add");
-        btn2.setActionCommand("Remove");
-        btn3.setActionCommand("View");
-        btn4.setActionCommand("Save");
-        btn5.setActionCommand("Load");
-        btn1.addActionListener(this);
-        btn2.addActionListener(this);
-        btn3.addActionListener(this);
-        btn4.addActionListener(this);
-        btn5.addActionListener(this);
+        buttons = new ArrayList<>();
+        makeButtons();
         label = new JLabel("<html>" + mySchedule.mondayToString() + "<br><br/>" + mySchedule.tuesdayToString()
                 + "<br><br/>" + mySchedule.wednesdayToString() + "<br><br/>" + mySchedule.thursdayToString()
                 + "<br><br/>" + mySchedule.fridayToString() + "</html>");
         field = new JTextField(6);
         header = new JLabel(new ImageIcon("header.png"));
         add(header);
-        add(btn1);
-        add(btn2);
-        add(btn3);
-        add(btn4);
-        add(btn5);
+        for (JButton button : buttons) {
+            button.addActionListener(this);
+            add(button);
+        }
         add(label);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+    }
+
+    public void createButton(int i, String s, String a) {
+        buttons.add(i, new JButton(s));
+        buttons.get(i).setActionCommand(a);
+    }
+
+    public void makeButtons() {
+        createButton(0, "Add a class", "Add");
+        createButton(1, "Remove a class", "Remove");
+        createButton(2, "View my schedule", "View");
+        createButton(3, "Save my schedule", "Save");
+        createButton(4, "Load my schedule", "Load");
     }
 
     // EFFECTS: prints formatted schedule in the application interface
@@ -198,4 +199,5 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         splash();
         new WeeklyClassesUI();
     }
+
 }
