@@ -71,6 +71,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
         label.setText("<html>" + mySchedule.mondayToString() + "<br><br/>" + mySchedule.tuesdayToString()
                 + "<br><br/>" + mySchedule.wednesdayToString() + "<br><br/>" + mySchedule.thursdayToString()
                 + "<br><br/>" + mySchedule.fridayToString() + "</html>");
+        label.paintImmediately(label.getVisibleRect());
     }
 
     // This is the method that is called when the JButton btn is clicked
