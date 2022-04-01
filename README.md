@@ -38,7 +38,8 @@ Class CPSC121 removed from Monday
 **Phase 4: Task 3**
 
 If I had more time to work on refactoring my project, I would:
-- Refactor each of the remove class day methods into just one remove class method in the WeeklyClasses class, like I did with the add class method
+- Refactor each of the toJson day methods in the WeeklyClasses class into a single method to increase cohesion
+- Refactor each of the remove class day methods into just one remove class method in the WeeklyClasses class, like with the add class method
 - Refactor the GUI into more than one class to increase cohesion and follow the single responsibility principle
 - Create more abstract classes and interfaces to extend from to reduce repeated code in the model and ui packages
 
