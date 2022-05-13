@@ -5,10 +5,7 @@
 This application aims to help students keep track of their classes for each day 
 of the week by being able to list the classes they will have in each 
 particular day. This application is for students who take many classes per 
-week and helps them remember what classes they have each day. This 
-project is of interest to me because as a student, I have difficulty 
-remembering all the classes I need to attend per day and this application
-would ensure that I don't miss any of my classes. 
+week and helps them remember what classes they have each day. 
 
 **User stories:**
 - As a user, I want to be able to add a class to my weekly schedule
