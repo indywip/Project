@@ -92,34 +92,25 @@ public class WeeklyClasses implements Writable {
      * MODIFIES: this
      * EFFECTS: class inputted is removed from day of the week and updated schedule is returned
      */
-    public void removeClassMonday(String inputClass) {
-        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
-        monday.removeIf(condition);
-        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Monday"));
-    }
 
-    public void removeClassTuesday(String inputClass) {
+    public void removeClass(String inputClass, String inputDay) {
         Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
-        tuesday.removeIf(condition);
-        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Tuesday"));
-    }
-
-    public void removeClassWednesday(String inputClass) {
-        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
-        wednesday.removeIf(condition);
-        EventLog.getInstance().logEvent(new Event("Class" + inputClass + " removed from Wednesday"));
-    }
-
-    public void removeClassThursday(String inputClass) {
-        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
-        thursday.removeIf(condition);
-        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Thursday"));
-    }
-
-    public void removeClassFriday(String inputClass) {
-        Predicate<MyClass> condition = theclass -> theclass.retrieveClass().equals(inputClass);
-        friday.removeIf(condition);
-        EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Friday"));
+        if (inputDay.equals("Monday")) {
+            monday.removeIf(condition);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Monday"));
+        } else if (inputDay.equals("Tuesday")) {
+            tuesday.removeIf(condition);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Tuesday"));
+        } else if (inputDay.equals("Wednesday")) {
+            wednesday.removeIf(condition);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Wednesday"));
+        } else if (inputDay.equals("Thursday")) {
+            thursday.removeIf(condition);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Thursday"));
+        } else {
+            friday.removeIf(condition);
+            EventLog.getInstance().logEvent(new Event("Class " + inputClass + " removed from Friday"));
+        }
     }
 
     /*

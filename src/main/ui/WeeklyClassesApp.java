@@ -129,23 +129,7 @@ public class WeeklyClassesApp {
             System.out.println("Monday\nTuesday\nWednesday\nThursday\nFriday");
             selection = input.next();
         }
-
-        switch (selection) {
-            case "Monday":
-                mySchedule.removeClassMonday(className);
-                break;
-            case "Tuesday":
-                mySchedule.removeClassTuesday(className);
-                break;
-            case "Wednesday":
-                mySchedule.removeClassWednesday(className);
-                break;
-            case "Thursday":
-                mySchedule.removeClassThursday(className);
-                break;
-            default:
-                mySchedule.removeClassFriday(className);
-        }
+        mySchedule.removeClass(className, selection);
         printSchedule(mySchedule);
     }
 

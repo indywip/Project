@@ -110,17 +110,7 @@ public class WeeklyClassesUI extends JFrame implements ActionListener {
                 null, field, "Choose day of the week", JOptionPane.QUESTION_MESSAGE,
                 new ImageIcon("tobstiny.jpg"), optionsToChoose, optionsToChoose[3]);
         if (getDay != null) {
-            if (getDay.equals("Monday")) {
-                mySchedule.removeClassMonday(field.getText());
-            } else if (getDay.equals("Tuesday")) {
-                mySchedule.removeClassTuesday(field.getText());
-            } else if (getDay.equals("Wednesday")) {
-                mySchedule.removeClassWednesday(field.getText());
-            } else if (getDay.equals("Thursday")) {
-                mySchedule.removeClassThursday(field.getText());
-            } else {
-                mySchedule.removeClassFriday(field.getText());
-            }
+            mySchedule.removeClass(field.getText(), getDay);
         }
         printSchedule();
     }

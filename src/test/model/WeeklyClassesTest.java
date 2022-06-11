@@ -67,7 +67,7 @@ class WeeklyClassesTest {
 
     @Test
     void testRemoveClassEmpty() {
-        testSchedule.removeClassTuesday("CPSC110");
+        testSchedule.removeClass("CPSC110","Tuesday");
         assertEquals("Monday: []\n" +
                 "Tuesday: []\n" +
                 "Wednesday: []\n" +
@@ -78,7 +78,7 @@ class WeeklyClassesTest {
     @Test
     void testRemoveClass() {
         testSchedule.addClass("CPSC110", "Thursday");
-        testSchedule.removeClassThursday("CPSC110");
+        testSchedule.removeClass("CPSC110","Thursday");
         assertEquals("Monday: []\n" +
                 "Tuesday: []\n" +
                 "Wednesday: []\n" +
@@ -101,8 +101,8 @@ class WeeklyClassesTest {
     void testRemoveMultipleClasses() {
         testSchedule.addClass("CPSC110", "Friday");
         testSchedule.addClass("CPSC121", "Friday");
-        testSchedule.removeClassFriday("CPSC110");
-        testSchedule.removeClassFriday("CPSC121");
+        testSchedule.removeClass("CPSC110","Friday");
+        testSchedule.removeClass("CPSC121","Friday");
         assertEquals("Monday: []\n" +
                 "Tuesday: []\n" +
                 "Wednesday: []\n" +
